@@ -21,6 +21,27 @@ class Partner extends CI_Controller
         $this->template->load('template', 'partner/data', $data);
     }
 
+    public function edit($id)
+    {
+        // $this->_validasi();
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = "Partner";
+            $data['partner'] = $this->base->getUser('partner', ['id_partner' => $id]);
+            $this->template->load('template', 'partner/edit', $data);
+        } else {
+            $input = $this->input->post(null, true);
+            $update = $this->base->update('Partner', 'id_partner', $id, $input);
+            if ($update) {
+                set_pesan('data berhasil disimpan');
+                redirect('partner');
+            } else {
+                set_pesan('data gagal disimpan', false);
+                redirect('partner/add');
+            }
+        }
+    }
+
     public function add()
     {
         $data['title'] = "Partner";
