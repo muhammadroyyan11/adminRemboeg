@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>OKI POLINEMA | <?= $title ?></title>
+    <title> Remoboeg Pawon | <?= $title ?></title>
     <link rel="apple-touch-icon" href="<?= base_url() ?>assets/app-assets/images/ico/apple-icon-120.png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
@@ -48,7 +48,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/assets/css/drag.css">
-    
+
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
     <link href="<?= base_url(); ?>assets/vendor/daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- End DatePicket -->
@@ -74,9 +74,6 @@
                             <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
                         </ul>
                         <ul class="nav navbar-nav bookmark-icons">
-                            <!-- li.nav-item.mobile-menu.d-xl-none.mr-auto-->
-                            <!--   a.nav-link.nav-menu-main.menu-toggle.hidden-xs(href='#')-->
-                            <!--     i.ficon.feather.icon-menu-->
                             <li class="nav-item d-none d-lg-block"><a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon feather icon-check-square"></i></a></li>
                         </ul>
                     </div>
@@ -85,7 +82,7 @@
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?= userdata('nama'); ?></span><span class="user-status">Online</span></div><span><img class="round" src="<?= base_url() ?>assets/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= site_url('profile')?>"><i class="feather icon-user"></i> Edit Profile</a>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= site_url('profile') ?>"><i class="feather icon-user"></i> Edit Profile</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= site_url('auth/logout/'); ?>"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>
@@ -111,34 +108,36 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                
-                <li <?=$this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('dashboard') ?>"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+
+                <li <?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('dashboard') ?>"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
                 </li>
-                
+
                 <li class=" navigation-header"><span>Kelola Website</span>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
                     <ul class="menu-content">
-                        <li <?=$this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
+                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
                         </li>
-                        <li <?=$this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Thumb View</span></a>
+                        <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Thumb View</span></a>
                         </li>
                     </ul>
                 </li>
-                <li <?=$this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('barang') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Barang</span></a>
+                <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('barang') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Barang</span></a>
                 </li>
-                <li <?=$this->uri->segment(1) == 'peminjaman' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('peminjaman')?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="peminjaman">Peminjaman barang</span></a>
+                <li <?= $this->uri->segment(1) == 'Partner' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('Partner') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Partner</span></a>
+                </li>
+                <li <?= $this->uri->segment(1) == 'peminjaman' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('peminjaman') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="peminjaman">Peminjaman barang</span></a>
                 </li>
                 <li class=" navigation-header"><span>Control</span>
                 </li>
-                <li <?=$this->uri->segment(1) == 'categori' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('categori') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Categori</span></a>
+                <li <?= $this->uri->segment(1) == 'categori' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('categori') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Categori</span></a>
                 </li>
-                <li <?=$this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('laporan') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Laporan</span></a>
+                <li <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('laporan') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Laporan</span></a>
                 </li>
                 <?php if (is_admin()) { ?>
                     <li class=" navigation-header"><span>User Management</span>
                     </li>
-                    <li <?=$this->uri->segment(1) == 'user' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : ''?>><a href="<?= site_url('user') ?>"><i class="feather icon-users"></i><span class="menu-title" data-i18n="User Management">User Management</span></a>
+                    <li <?= $this->uri->segment(1) == 'user' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('user') ?>"><i class="feather icon-users"></i><span class="menu-title" data-i18n="User Management">User Management</span></a>
                     </li>
                 <?php } ?>
 
@@ -216,7 +215,7 @@
     <script src="<?= base_url() ?>assets/assets/js/ajax.js"></script>
     <script src="<?= base_url() ?>assets/app-assets/vendors/js/pickers/pickadate/picker.js"></script>
     <script src="<?= base_url() ?>assets/app-assets/vendors/js/pickers/pickadate/picker.date.js"></script>
-    
+
     <script src="<?= base_url() ?>assets/app-assets/vendors/js/calendar/fullcalendar.min.js"></script>
     <script src="<?= base_url() ?>assets/app-assets/vendors/js/calendar/extensions/daygrid.min.js"></script>
     <script src="<?= base_url() ?>assets/app-assets/vendors/js/calendar/extensions/timegrid.min.js"></script>
@@ -266,7 +265,7 @@
             function cb(start, end) {
                 $('#tangalrange').val(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
             }
- 
+
             $('#tanggalrange').daterangepicker({
                 startDate: start,
                 endDate: end,
