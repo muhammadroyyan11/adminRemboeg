@@ -134,7 +134,7 @@
                     <ul class="menu-content">
                         <li <?= $this->uri->segment(1) == 'kartikel' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('kartikel') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Artikel</span></a>
                         </li>
-                        <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Posting Artikel</span></a>
+                        <li <?= $this->uri->segment(1) == 'posting' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('posting') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Posting Artikel</span></a>
                         </li>
                     </ul>
                 </li>

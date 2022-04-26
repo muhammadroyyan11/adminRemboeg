@@ -19,14 +19,5 @@ class Peminjaman extends CI_Controller
         $this->template->load('template', 'peminjaman/data', $data);
     }
 
-    // public function index()
-    // {
-    //     $data['title'] = "Keuangan";
-    //     $data['categori'] = $this->base_model->get('categori')->result();
-    //     $data['cashk'] = $this->base_model->joinCategory('id' ,array('mutation' => 'keluar'))->result();
-    //     $data['cashm'] = $this->base_model->joinCategory('id' ,array('mutation' => 'masuk'))->result();
-    //     $this->template->load('template', 'keuangan/data_keuangan', $data);
-    // }
-
   
 }

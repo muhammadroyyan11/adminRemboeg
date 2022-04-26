@@ -27,6 +27,7 @@ class Kartikel extends CI_Controller
 
         $this->db->insert('kartikel', array(
             'nama' => $this->input->post('namaKategori'),
+            'isActive' => '1'
             // 'stok' => str_replace(',', '', $this->input->post('stok')),
             // 'harga' => str_replace(',', '', $this->input->post('harga'))
             // 'description' => $this->input->post('description'),
@@ -54,8 +55,8 @@ class Kartikel extends CI_Controller
 
     public function delete($id)
     {
-        $where = array('id_barang' => $id);
-        $this->base_model->del('barang', $where);
-        redirect('sepatu');
+        $where = array('id_kartikel' => $id);
+        $this->base_model->del('kartikel', $where);
+        redirect('kartikel');
     }
 }

@@ -18,24 +18,27 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Kategori</th>
                                         <th>Status</th>
+                                        <th>Nama Kategori</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
                                     foreach ($kartikel as $key => $data) { ?>
-                                      
-                                            <tr>
-                                                <td><?= $no++; ?></td>
-                                                <td><?= $data->nama ?></td>
-                                                <!-- <td><?= $data->status ?></td> -->
-                                                <th>
-                                                    <a href="<?= base_url('kartikel/edit/') . $data->id_kartikel ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                    <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('kartikel/delete/') . $data->id_kartikel ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                                                </th>
-                                            </tr>
+
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td>
+                                                <a href="<?= base_url('user/toggle/') . $data->isActive ?>" class="btn btn-circle btn-sm <?= $data->isActive ? 'btn-secondary' : 'btn-success' ?>" title="<?= $data->isActive ? 'Nonaktifkan Kategori' : 'Aktifkan Kategori' ?>"><i class="fa fa-fw fa-power-off"></i></a>
+                                            </td>
+                                            <td><?= $data->nama ?></td>
+                                            <!-- <td><?= $data->status ?></td> -->
+                                            <th>
+                                                <a href="<?= base_url('kartikel/edit/') . $data->id_kartikel ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('kartikel/delete/') . $data->id_kartikel ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                            </th>
+                                        </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
