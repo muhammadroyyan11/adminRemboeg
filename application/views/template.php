@@ -124,7 +124,7 @@
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Data List">Data Barang</span></a>
                     <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Barang</span></a>
+                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('kproduk') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Barang</span></a>
                         </li>
                         <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Barang</span></a>
                         </li>
@@ -138,20 +138,20 @@
                         </li>
                     </ul>
                 </li>
-                <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
+                <!-- <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
                     <ul class="menu-content">
                         <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
                         </li>
                         <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Thumb View</span></a>
                         </li>
                     </ul>
-                </li>
-                <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('barang') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Barang</span></a>
+                </li> -->
+                <!-- <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('barang') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Barang</span></a>
                 </li>
                 <li <?= $this->uri->segment(1) == 'Partner' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('Partner') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Partner</span></a>
                 </li>
                 <li <?= $this->uri->segment(1) == 'peminjaman' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('peminjaman') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="peminjaman">Peminjaman barang</span></a>
-                </li>
+                </li> -->
                 <li class=" navigation-header"><span>Kelola Blog</span>
                 </li>
                 <li <?= $this->uri->segment(1) == 'categori' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('categori') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Categori</span></a>
@@ -253,6 +253,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
 
+    <!-- CKEDITOR-->
+    <script src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
+
     <script>
         var hoursLabel = document.getElementById("hours");
         var minutesLabel = document.getElementById("minutes");
@@ -326,6 +329,21 @@
             });
 
             table.buttons().container().appendTo('#dataTable_wrapper .col-md-5:eq(0)');
+        });
+    </script>
+
+    <!-- CKEDITOR -->
+    <script>
+        var ckeditor = CKEDITOR.replace('ckeditor', {
+            height: '600px'
+        });
+
+        CKEDITOR.disableAutoInline = true;
+        CKEDITOR.inline('editable');
+    </script>
+    <script>
+        $('#summernote').summernote({
+            height: 300,
         });
     </script>
 

@@ -58,12 +58,12 @@ class Base_model extends CI_Model
         return $sql;
     }
 
-    public function getTotal()
+    public function getOrder()
     {
-        $login = $this->session->userdata('id_user');
+        // $login = $this->session->userdata('id_user');
         $this->db->select('*');
-        $this->db->from('cash_balance');
-        // $this->db->where('id_user', $login);
+        $this->db->from('kartikel');
+        $this->db->where('isActive', '1');
         $query = $this->db->get();
         return $query;
     }

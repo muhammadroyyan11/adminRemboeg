@@ -31,7 +31,7 @@ class Barang extends CI_Controller
         $kode_tambah++;
         $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
         $data['id_barang'] = userdata('nama') . $number;
-
+        
         $this->template->load('template', 'barang/add', $data);
     }
 
