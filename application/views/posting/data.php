@@ -35,11 +35,11 @@
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->judul ?></td>
                                             <td><?= $data->featured ?></td>
-                                            <td><?= $data->choise ?></td>
+                                            <td><?= $data->choice ?></td>
                                             <td><?= $data->thread ?></td>
                                             <td><?= $data->nama ?></td>
                                             <td><?= $data->isActive ?></td>
-                                            <td><?= $data->date_post ?></td>
+                                            <td><?= $data->date ?></td>
                                             <th>
                                                 <a href="<?= base_url('posting/edit/') . $data->id_posting ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                 <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('posting/delete/') . $data->id_posting ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>

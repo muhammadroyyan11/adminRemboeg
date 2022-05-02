@@ -15,14 +15,21 @@ class Posting extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Posting Artikel";
-        $data['posting'] = $this->base_model->get('posting')->result();
+        $data['posting'] = $this->base_model->get_join()->result();
         $this->template->load('template', 'posting/data', $data);
     }
 
     public function add()
     {
+        if(!$_POST){
+			$input = (object) $this->base_model->getDefaultValues();
+		}else{
+			$input = (object) $this->input->post(null, true);
+		}
         $data['title'] = "Buat Artikel Baru";
         $data['kategori'] = $this->base_model->getOrder('kartikel')->result();
+        $data['input'] = $input;
+
         $this->template->load('template', 'posting/add', $data);
     }
 
@@ -31,10 +38,13 @@ class Posting extends CI_Controller
         $this->db->insert('posting', array(
             'judul' => $this->input->post('judul'),
             'seo_judul' => slugify($this->input->post('judul')),
-            // 'konten' => $this->input->post('konten'),
-            // 'description' => $this->input->post('description'),
-            // 'status' => $this->input->post('status'),
-            // 'id_user' => userdata('id_user')
+            'konten' => $this->input->post('konten'),
+            'featured' => $this->input->post('featured'),
+            'choice' => $this->input->post('choice'),
+            'thread' => $this->input->post('thread'),
+            'id_kartikel' => $this->input->post('kategori'),
+            'isActive' => 1,
+            'date' => date('Y-m-d')
         ));
 
         // var_dump($this->db->affected_rows())
@@ -50,5 +60,7 @@ class Posting extends CI_Controller
                 'message' => "Gagal saat menyimpan data!"
             );
         }
+
+        redirect('posting');
     }
 }

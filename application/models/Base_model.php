@@ -128,11 +128,24 @@ class Base_model extends CI_Model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+    public function getAll($id = null)
+    {
+        // $nowDate = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('antrian_loket');
+        $this->db->join('loket', 'loket.loket_id=antrian_loket.loket_id');
+        // $this->db->where('tgl_antrian_loket');
+        if ($id != null) {
+            $this->db->where('id_antrian_loket', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
     public function get_join()
     {
         $this->db->select('*');
-        $this->db->from('cash_balance');
-        $this->db->join('user', 'user.id_user = cash_balance.id_user');
+        $this->db->from('posting');
+        $this->db->join('kartikel', 'kartikel.id_kartikel = posting.id_kartikel');
         // $this->db->order_by($order, $az);
         $sql = $this->db->get();
         return $sql;
@@ -194,4 +207,20 @@ class Base_model extends CI_Model
     {
         return $this->db->delete($table, [$pk => $id]);
     }
+
+    public function getDefaultValues()
+   {
+      return [
+         'judul'        => '',
+         'seo_judul'    => '',
+         'konten'      => '',
+         'featured'     => 'N',
+         'choice'       => 'N',
+         'thread'       => 'N',
+         'id_category'  => '',
+         'photo'        => '',
+         'is_active'    => '1',
+         'date'         => ''
+      ];
+   }
 }
