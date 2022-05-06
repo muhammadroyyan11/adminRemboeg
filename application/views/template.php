@@ -82,8 +82,8 @@
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?= userdata('nama'); ?></span><span class="user-status">Online</span></div><span><img class="round" src="<?= base_url() ?>assets/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= site_url('profile') ?>"><i class="feather icon-user"></i> Edit Profile</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= site_url('auth/logout/'); ?>"><i class="feather icon-power"></i> Logout</a>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?= site_url('admin/profile') ?>"><i class="feather icon-user"></i> Edit Profile</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="<?= site_url('admin/auth/logout/'); ?>"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -109,14 +109,14 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-                <li <?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('dashboard') ?>"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+                <li <?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/dashboard') ?>"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
                 </li>
 
                 <li class=" navigation-header"><span>Kelola Website</span>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-edit-2"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
                     <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
+                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
                         </li>
                         <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Contact</span></a>
                         </li>
@@ -124,44 +124,44 @@
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Data List">Data Barang</span></a>
                     <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('kproduk') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Barang</span></a>
+                        <li <?= $this->uri->segment(1) == 'kproduk' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/kproduk') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Barang</span></a>
                         </li>
-                        <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Barang</span></a>
+                        <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/barang') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Barang</span></a>
                         </li>
                     </ul>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="feather icon-book-open"></i><span class="menu-title" data-i18n="Data List">Artikel</span></a>
                     <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'kartikel' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('kartikel') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Artikel</span></a>
+                        <li <?= $this->uri->segment(1) == 'kartikel' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/kartikel') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Kategori Artikel</span></a>
                         </li>
-                        <li <?= $this->uri->segment(1) == 'posting' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('posting') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Posting Artikel</span></a>
+                        <li <?= $this->uri->segment(1) == 'posting' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/posting') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Posting Artikel</span></a>
                         </li>
                     </ul>
                 </li>
                 <!-- <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
                     <ul class="menu-content">
-                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
+                        <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
                         </li>
                         <li <?= $this->uri->segment(1) == 'as' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="data-thumb-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">Thumb View</span></a>
                         </li>
                     </ul>
                 </li> -->
-                <!-- <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('barang') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Barang</span></a>
+                <!-- <li <?= $this->uri->segment(1) == 'barang' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/barang') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Barang</span></a>
                 </li>
-                <li <?= $this->uri->segment(1) == 'Partner' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('Partner') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Partner</span></a>
+                <li <?= $this->uri->segment(1) == 'Partner' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/Partner') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="Tanggungan">Partner</span></a>
                 </li>
-                <li <?= $this->uri->segment(1) == 'peminjaman' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('peminjaman') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="peminjaman">Peminjaman barang</span></a>
+                <li <?= $this->uri->segment(1) == 'peminjaman' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/peminjaman') ?>"><i class="feather icon-x-circle"></i><span class="menu-title" data-i18n="peminjaman">Peminjaman barang</span></a>
                 </li> -->
                 <li class=" navigation-header"><span>Kelola Blog</span>
                 </li>
-                <li <?= $this->uri->segment(1) == 'categori' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('categori') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Categori</span></a>
+                <li <?= $this->uri->segment(1) == 'categori' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/categori') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Categori</span></a>
                 </li>
-                <li <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('laporan') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Laporan</span></a>
+                <li <?= $this->uri->segment(1) == 'laporan' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/laporan') ?>"><i class="feather icon-save"></i><span class="menu-title" data-i18n="Laporan">Laporan</span></a>
                 </li>
                 <?php if (is_admin()) { ?>
                     <li class=" navigation-header"><span>User Management</span>
                     </li>
-                    <li <?= $this->uri->segment(1) == 'user' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('user') ?>"><i class="feather icon-users"></i><span class="menu-title" data-i18n="User Management">User Management</span></a>
+                    <li <?= $this->uri->segment(1) == 'user' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/user') ?>"><i class="feather icon-users"></i><span class="menu-title" data-i18n="User Management">User Management</span></a>
                     </li>
                 <?php } ?>
 

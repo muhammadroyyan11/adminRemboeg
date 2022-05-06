@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <h4 class="card-title"><?= $title ?></h4>
                     <div class="pull-right">
-                        <a href="<?= site_url('posting/add') ?>" class="btn btn-primary btn-flat">
+                        <a href="<?= site_url('admin/posting/add') ?>" class="btn btn-primary btn-flat">
                             <i class="fa fa-user-plus"></i> Tambah
                         </a>
                     </div>
@@ -37,12 +37,12 @@
                                             <td><?= $data->featured ?></td>
                                             <td><?= $data->choice ?></td>
                                             <td><?= $data->thread ?></td>
-                                            <td><?= $data->nama ?></td>
+                                            <td><?= $data->nama ?></td> <!-- Nama Kategori -->
                                             <td><?= $data->isActive ?></td>
                                             <td><?= $data->date ?></td>
                                             <th>
-                                                <a href="<?= base_url('posting/edit/') . $data->id_posting ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('posting/delete/') . $data->id_posting ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="<?= base_url('admin/posting/edit/') . $data->id_posting ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('admin/posting/delete/') . $data->id_posting ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </th>
                                         </tr>
                                     <?php } ?>

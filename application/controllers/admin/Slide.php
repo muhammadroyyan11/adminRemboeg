@@ -77,7 +77,7 @@ class Slide extends CI_Controller
 			$this->base_model->insert('slide', $data);
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
 
-			redirect('Slide');
+			redirect('admin/Slide');
 		}
 	}
   

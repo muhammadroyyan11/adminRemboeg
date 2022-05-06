@@ -75,7 +75,7 @@ class User extends CI_Controller
                 redirect('user');
             } else {
                 set_pesan('data gagal disimpan', false);
-                redirect('user/add');
+                redirect('admin/user/add');
             }
         }
     }
@@ -104,7 +104,7 @@ class User extends CI_Controller
                 redirect('user');
             } else {
                 set_pesan('data gagal diubah.', false);
-                redirect('user/edit/' . $id);
+                redirect('admin/user/edit/' . $id);
             }
         }
     }
@@ -117,7 +117,7 @@ class User extends CI_Controller
         } else {
             set_pesan('data gagal dihapus.', false);
         }
-        redirect('user');
+        redirect('admin/user');
     }
 
     public function toggle($getId)
@@ -130,6 +130,6 @@ class User extends CI_Controller
         if ($this->base_model->update('user', 'id_user', $getId, ['is_active' => $toggle])) {
             set_pesan($pesan);
         }
-        redirect('user');
+        redirect('admin/user');
     }
 }

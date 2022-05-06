@@ -5,7 +5,7 @@
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form action="<?= base_url('barang/process')?>" class="form" method="post">
+                <form action="<?= base_url('admin/barang/process')?>" class="form" method="post">
                 <div class="form-body">
                     <div class="row">
                         

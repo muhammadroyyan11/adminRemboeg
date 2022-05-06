@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <h4 class="card-title">Data <?= $title ?></h4>
                     <div class="pull-right">
-                        <a href="<?= site_url('slide/add') ?>" class="btn btn-primary btn-flat">
+                        <a href="<?= site_url('admin/slide/add') ?>" class="btn btn-primary btn-flat">
                             <i class="fa fa-user-plus"></i> Tambah
                         </a>
                     </div>
@@ -29,7 +29,7 @@
                                             <td><?= $no++; ?></td>
                                             <td><img src="<?= base_url() ?>assets/img/uploads/slide/<?= $data->gambar_name ?>" style="max-width: 250px; max-weight:250px" alt=""></td>
                                             <th>
-                                                <a href="<?= base_url('slide/edit/') . $data->id_slide ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="<?= base_url('admin/slide/edit/') . $data->id_slide ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
                                                 
                                             </th>
                                         </tr>

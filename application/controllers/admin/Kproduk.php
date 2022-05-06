@@ -42,13 +42,13 @@ class Kproduk extends CI_Controller
             set_pesan('Gagal saat menyimpan data', false);
         }
 
-        redirect('kproduk');
+        redirect('admin/kproduk');
     }
 
     public function delete($id)
     {
         $where = array('id_kproduk' => $id);
         $this->base_model->del('kproduk', $where);
-        redirect('kproduk');
+        redirect('admin/kproduk');
     }
 }

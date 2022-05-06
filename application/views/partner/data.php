@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <h4 class="card-title">Data <?= $title ?></h4>
                     <div class="pull-right">
-                        <a href="<?= site_url('partner/add') ?>" class="btn btn-primary btn-flat">
+                        <a href="<?= site_url('admin/partner/add') ?>" class="btn btn-primary btn-flat">
                             <i class="fa fa-user-plus"></i> Tambah
                         </a>
                     </div>
@@ -33,8 +33,8 @@
                                             <td><?= $data->instagram ?></td>
                                             <td><?= $data->maps ?></td>
                                             <th>
-                                                <a href="<?= base_url('partner/edit/') . $data->id_partner ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('partner/delete/') . $data->id_partner ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="<?= base_url('admin/partner/edit/') . $data->id_partner ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('admin/partner/delete/') . $data->id_partner ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </th>
                                         </tr>
                                     <?php } ?>

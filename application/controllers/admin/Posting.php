@@ -61,6 +61,6 @@ class Posting extends CI_Controller
             );
         }
 
-        redirect('posting');
+        redirect('admin/posting');
     }
 }

@@ -30,13 +30,13 @@
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td>
-                                                <a href="<?= base_url('user/toggle/') . $data->isActive ?>" class="btn btn-circle btn-sm <?= $data->isActive ? 'btn-secondary' : 'btn-success' ?>" title="<?= $data->isActive ? 'Nonaktifkan Kategori' : 'Aktifkan Kategori' ?>"><i class="fa fa-fw fa-power-off"></i></a>
+                                                <a href="<?= base_url('admin/user/toggle/') . $data->isActive ?>" class="btn btn-circle btn-sm <?= $data->isActive ? 'btn-secondary' : 'btn-success' ?>" title="<?= $data->isActive ? 'Nonaktifkan Kategori' : 'Aktifkan Kategori' ?>"><i class="fa fa-fw fa-power-off"></i></a>
                                             </td>
                                             <td><?= $data->nama ?></td>
                                             <!-- <td><?= $data->status ?></td> -->
                                             <th>
-                                                <a href="<?= base_url('kproduk/edit/') . $data->id_kproduk ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('kproduk/delete/') . $data->id_kproduk ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="<?= base_url('admin/kproduk/edit/') . $data->id_kproduk ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('admin/kproduk/delete/') . $data->id_kproduk ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </th>
                                         </tr>
                                     <?php } ?>
@@ -62,7 +62,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form form-horizontal" action="<?php echo base_url('kproduk/add') ?>" method="post">
+                <form class="form form-horizontal" action="<?php echo base_url('admin/kproduk/add') ?>" method="post">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-12">

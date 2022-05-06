@@ -5,7 +5,7 @@
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-horizontal" method="post" action="<?= site_url('posting/proses') ?>">
+                <form class="form form-horizontal" method="post" action="<?= site_url('admin/posting/proses') ?>">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-12">

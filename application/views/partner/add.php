@@ -5,7 +5,7 @@
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form action="<?= base_url('partner/process')?>" class="form" method="post">
+                <form action="<?= base_url('admin/partner/process')?>" class="form" method="post">
                 <div class="form-body">
                     <div class="row">
                         <div class="col-12">

@@ -6,7 +6,7 @@
         <div class="card-content">
             <div class="card-body">
                 <!-- <form class="form"> -->
-                <?= form_open_multipart('slide/insertdata') ?>
+                <?= form_open_multipart('admin/slide/insertdata') ?>
                 <div class="form-body">
                     <div class="row">
                         <div class="col-12 main-sectionx">

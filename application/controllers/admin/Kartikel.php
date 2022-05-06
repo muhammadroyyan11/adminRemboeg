@@ -57,6 +57,6 @@ class Kartikel extends CI_Controller
     {
         $where = array('id_kartikel' => $id);
         $this->base_model->del('kartikel', $where);
-        redirect('kartikel');
+        redirect('admin/kartikel');
     }
 }

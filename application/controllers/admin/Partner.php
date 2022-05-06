@@ -72,6 +72,6 @@ class Partner extends CI_Controller
             );
         }
 
-        redirect('partner');
+        redirect('admin/partner');
     }
 }

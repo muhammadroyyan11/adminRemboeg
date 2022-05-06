@@ -15,7 +15,7 @@ class Auth extends CI_Controller
     private function _has_login()
     {
         if ($this->session->has_userdata('login_session')) {
-            redirect('dashboard');
+            redirect('admin/dashboard');
         }
     }
 
@@ -39,7 +39,7 @@ class Auth extends CI_Controller
                     $user_db = $this->auth->userdata($input['username']);
                     if ($user_db['is_active'] != 1) {
                         set_pesan('akun anda belum aktif/dinonaktifkan. Silahkan hubungi admin.', false);
-                        redirect('auth');
+                        redirect('admin/auth');
                     } else {
                         $userdata = [
                             'user'  => $user_db['id_user'],
@@ -47,15 +47,15 @@ class Auth extends CI_Controller
                             'timestamp' => time()
                         ];
                         $this->session->set_userdata('login_session', $userdata);
-                        redirect('dashboard');
+                        redirect('admin/dashboard');
                     }
                 } else {
                     set_pesan('password salah', false);
-                    redirect('auth');
+                    redirect('admin/auth');
                 }
             } else {
                 set_pesan('username belum terdaftar', false);
-                redirect('auth');
+                redirect('admin/auth');
             }
         }
     }
@@ -65,7 +65,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('login_session');
 
         set_pesan('anda telah berhasil logout');
-        redirect('auth');
+        redirect('admin/auth');
     }
 
     public function register()
@@ -92,10 +92,10 @@ class Auth extends CI_Controller
             $query = $this->base->insert('user', $input);
             if ($query) {
                 set_pesan('daftar berhasil. Selanjutnya silahkan hubungi admin untuk mengaktifkan akun anda.');
-                redirect('auth');
+                redirect('admin/auth');
             } else {
                 set_pesan('gagal menyimpan ke database', false);
-                redirect('register');
+                redirect('admin/register');
             }
         }
     }
