@@ -20,7 +20,7 @@ class Blog extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['blog'] = $this->base_model->get('posting')->result();
+		$data['blog'] = $this->base_model->get_join()->result();
 		$this->template->load('client/template', 'client/blog/blog', $data);
 	}
 }

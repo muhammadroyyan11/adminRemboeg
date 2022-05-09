@@ -12,13 +12,15 @@
 				<div class="col-md-8 col-lg-9 p-b-75">
 					<div class="p-r-50 p-r-0-lg">
 						<!-- item blog -->
-						<?php foreach ($blog as $key => $data) { ?>
+						<?php foreach ($blog as $key => $data) { 
+							$dateMasuk = new DateTime($data->date);
+							?>
 							<div class="item-blog p-b-80">
 							<a href="#" class="item-blog-img pos-relative dis-block hov-img-zoom">
 								<img src="<?= base_url() ?>assets/client/images/blog-04.jpg" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
-									28 Dec, 2018
+									<?= $dateMasuk->format('d F Y') ?>
 								</span>
 							</a>
 
@@ -36,7 +38,7 @@
 									</span>
 
 									<span>
-										Cooking, Food
+										<?= $data->nama?>
 										<span class="m-l-3 m-r-6">|</span>
 									</span>
 
@@ -45,9 +47,9 @@
 									</span>
 								</div>
 
-								<p class="p-b-12">
+								
 								<?= character_limiter($data->konten, 250) ?>
-								</p>
+								<br>
 
 								<a href="blog-detail.html" class="s-text20">
 									Continue Reading
