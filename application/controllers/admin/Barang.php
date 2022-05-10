@@ -23,15 +23,15 @@ class Barang extends CI_Controller
 
     public function add()
     {
+        if (!$_POST) {
+            $input = (object) $this->base_model->getDefaultValues();
+        } else {
+            $input = (object) $this->input->post(null, true);
+        }
         $data['title'] = "Tambah Barang";
+        $data['input'] = $input;
+        $data['kategori'] = $this->base_model->getOrderProduk('kproduk')->result();
 
-        // Mengenerate ID Barang
-        $kode_terakhir = $this->base->getMax('barang', 'id_barang');
-        $kode_tambah = substr($kode_terakhir, -6, 6);
-        $kode_tambah++;
-        $number = str_pad($kode_tambah, 6, '0', STR_PAD_LEFT);
-        $data['id_barang'] = userdata('nama') . $number;
-        
         $this->template->load('template', 'barang/add', $data);
     }
 
@@ -43,8 +43,8 @@ class Barang extends CI_Controller
             'name' => $this->input->post('nama_barang'),
             'description' => $this->input->post('description'),
             'status' => $this->input->post('status'),
+            'id_kproduk' => $this->input->post('kategori')
             // 'user_id' => userdata('id_user')
-            'id_user' => userdata('id_user')
         ));
 
         if ($this->db->affected_rows()) {
@@ -59,6 +59,84 @@ class Barang extends CI_Controller
             );
         }
 
-        redirect('barang');
+        redirect('admin/barang');
+    }
+
+    public function insertdata()
+    {
+        // $tanggal = date("Y-m-d");
+        // $login = userdata('id_user');
+
+        $config['upload_path']          = './assets/img/uploads/produk/';
+        $config['allowed_types']        = 'jpg|png';
+        $config['max_size']             = 5000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('userfile')) {
+            // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
+
+            // redirect('campaign/add');
+            $gambar = $this->upload->data();
+            $gambar =  $gambar['file_name'];
+
+            $name = $this->input->post('nama_barang');
+            $desc = $this->input->post('description');
+            $status = $this->input->post('status');
+            $link = $this->input->post('link_tokped');
+            $id_kproduk = $this->input->post('kategori');
+
+            $data = array(
+                'name' => $name,
+                'description' => $desc,
+                'status' => $status,
+                'gambar_name' => $gambar,
+                'link_tokped' => $link,
+                'id_kproduk' => $id_kproduk,
+            );
+            $this->base_model->insert('barang', $data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+            redirect('admin/barang');
+            
+        } else {
+
+            $gambar = $this->upload->data();
+            $gambar =  $gambar['file_name'];
+
+            $name = $this->input->post('nama_barang');
+            $desc = $this->input->post('description');
+            $status = $this->input->post('status');
+            $link = $this->input->post('link_tokped');
+            $id_kproduk = $this->input->post('kategori');
+
+            $data = array(
+
+                'name' => $name,
+                'description' => $desc,
+                'status' => $status,
+                'gambar_name' => $gambar,
+                'link_tokped' => $link,
+                'id_kproduk' => $id_kproduk,
+            );
+
+            // var_dump($data);
+            $this->base_model->insert('barang', $data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+
+            redirect('admin/barang');
+        }
+    }
+
+    public function delete($getId)
+    {
+        // $id = encode_php_tags($getId);
+        if ($this->base_model->delete('barang', 'id_posting', $getId)) {
+            set_pesan('data berhasil dihapus.');
+        } else {
+            set_pesan('data gagal dihapus.', false);
+        }
+        redirect('admin/posting');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog extends CI_Controller {
+class Shop extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,9 +22,11 @@ class Blog extends CI_Controller {
 	{
 		$data['blog'] = $this->base_model->get_join()->result();
 		$data['kartikel'] = $this->base_model->get('kartikel')->result();
-
-		$this->load->library('pagination');
-		
-		$this->template->load('client/template', 'client/blog/blog', $data);
+		$this->template->load('client/template', 'client/shop/shop', $data);
 	}
+
+    public function detail()
+    {
+        $this->template->load('client/template', 'client/shop/detail');
+    }
 }

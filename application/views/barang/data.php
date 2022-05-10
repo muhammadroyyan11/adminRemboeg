@@ -27,12 +27,11 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 1;
-                                    foreach ($barang as $key => $data) { 
-                                        if (userdata('id_user') == $data->id_user) :?>
+                                    foreach ($barang as $key => $data) { ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->name ?></td>
-                                            <td><?= $data->description ?></td>
+                                            <td><?= character_limiter($data->description, 250) ?></td>
                                             <td><?= $data->link_tokped ?></td>
                                             <td><?= $data->status ?></td>
                                             <th>
@@ -40,7 +39,6 @@
                                                 <a onclick="return confirm('Yakin ingin hapus?')" href="<?= base_url('admin/barang/delete/') . $data->id_barang ?>" class="btn btn-circle btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </th>
                                         </tr>
-                                        <?php endif; ?>
                                     <?php } ?>
                                 </tbody>
                             </table>

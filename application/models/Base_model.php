@@ -67,6 +67,16 @@ class Base_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+    
+    public function getOrderProduk()
+    {
+        // $login = $this->session->userdata('id_user');
+        $this->db->select('*');
+        $this->db->from('kproduk');
+        $this->db->where('isActive', '1');
+        $query = $this->db->get();
+        return $query;
+    }
 
     public function getCash($table, $order , $where)
     {
@@ -214,6 +224,7 @@ class Base_model extends CI_Model
          'judul'        => '',
          'seo_judul'    => '',
          'konten'      => '',
+         'description'      => '',
          'featured'     => 'N',
          'choice'       => 'N',
          'thread'       => 'N',

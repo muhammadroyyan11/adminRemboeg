@@ -61,7 +61,7 @@ class Slide extends CI_Controller
 				// 'date' => $date,
 				// 'id_user' => $id_user
 			);
-			// var_dump($data);
+			var_dump($data);
 		} else {
 
 			$gambar = $this->upload->data();
@@ -73,7 +73,7 @@ class Slide extends CI_Controller
 				
 			);
 
-			// var_dump($data);
+			var_dump($data);
 			$this->base_model->insert('slide', $data);
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
 
