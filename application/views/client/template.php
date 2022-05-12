@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/client/images/icons/favicon.png" />
+    <link rel="icon" type="image/png" href="<?= base_url() ?>assets/client/images/icons/koopen.png" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/client/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -86,6 +86,10 @@
                             </li>
 
                             <li>
+                                <a href="<?= site_url('blogg') ?>">Blog 2</a>
+                            </li>
+
+                            <li>
                                 <a href="<?= site_url('about') ?>">About</a>
                             </li>
 
@@ -157,6 +161,10 @@
 
                     <li class="item-menu-mobile">
                         <a href="<?= site_url('blog')?>">Blog</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="<?= site_url('blogg')?>">Blog 2</a>
                     </li>
 
                     <li class="item-menu-mobile">

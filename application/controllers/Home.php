@@ -20,6 +20,7 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->template->load('client/template', 'client/dashboard/dashboard');
+		$data['home'] = $this->base_model->get('slide')->result();
+		$this->template->load('client/template', 'client/dashboard/dashboard', $data);
 	}
 }

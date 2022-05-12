@@ -13,23 +13,25 @@ class Base_model extends CI_Model
         }
     }
 
-    public function joinCategory($order,$where){
+    public function joinCategory($order, $where)
+    {
         $this->db->select('*');
         $this->db->from('cash_balance');
-        $this->db->join('categori','categori.id_categori = cash_balance.category');
-        $this->db->order_by($order, 'DESC');   
-        $this->db->where($where);   
+        $this->db->join('categori', 'categori.id_categori = cash_balance.category');
+        $this->db->order_by($order, 'DESC');
+        $this->db->where($where);
         $query = $this->db->get();
         return $query;
-     }
+    }
 
-     public function joinCategory2($order, $where, $range = null){
+    public function joinCategory2($order, $where, $range = null)
+    {
         $this->db->select('*');
         $this->db->from('cash_balance');
-        $this->db->join('categori','categori.id_categori = cash_balance.category');
-        $this->db->join('user','user.id_user = cash_balance.id_user');
-        $this->db->order_by($order, 'DESC');   
-        $this->db->where($where);   
+        $this->db->join('categori', 'categori.id_categori = cash_balance.category');
+        $this->db->join('user', 'user.id_user = cash_balance.id_user');
+        $this->db->order_by($order, 'DESC');
+        $this->db->where($where);
 
         if ($range != null) {
             $this->db->where('date' . ' >=', $range['mulai']);
@@ -38,7 +40,7 @@ class Base_model extends CI_Model
         // return $this->db->get('barang_masuk bm')->result_array();
         $query = $this->db->get()->result_array();
         return $query;
-     }
+    }
 
     public function getUsers($id)
     {
@@ -58,6 +60,17 @@ class Base_model extends CI_Model
         return $sql;
     }
 
+    public function count($table)
+    {
+        return $this->db->get($table)->num_rows();
+    }
+
+    function data($table, $number, $offset)
+    {
+        return $query = $this->db->get($table, $number, $offset)->result();
+    }
+
+
     public function getOrder()
     {
         // $login = $this->session->userdata('id_user');
@@ -67,7 +80,7 @@ class Base_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-    
+
     public function getOrderProduk()
     {
         // $login = $this->session->userdata('id_user');
@@ -78,18 +91,18 @@ class Base_model extends CI_Model
         return $query;
     }
 
-    public function getCash($table, $order , $where)
+    public function getCash($table, $order, $where)
     {
-       // $tanggal = date('Y-m-d');
-       $this->db->select('*');
-       $this->db->from($table);
-       $this->db->where($where);
-       $this->db->order_by($order, 'DESC');
-       $query = $this->db->get();
-       return $query;
+        // $tanggal = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($where);
+        $this->db->order_by($order, 'DESC');
+        $query = $this->db->get();
+        return $query;
     }
 
-    public function get_uang($table, $order , $where)
+    public function get_uang($table, $order, $where)
     {
         // $tanggal = date('Y-m-d');
         $this->db->select('*');
@@ -100,7 +113,7 @@ class Base_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-    
+
     public function getMax($table, $field, $kode = null)
     {
         $this->db->select_max($field);
@@ -151,13 +164,24 @@ class Base_model extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-    public function get_join()
+
+    public function getPosting($seo_judul)
     {
         $this->db->select('*');
         $this->db->from('posting');
+        $this->db->join('kartikel', 'kartikel.id_kartikel = posting. id_kartikel');
+        $this->db->where('seo_judul', $seo_judul);
+        return $this->db->get()->row();
+    }
+
+
+    public function get_join($table, $number, $offset)
+    {
+        // $this->db->select('*');
+        // $this->db->from('posting');
         $this->db->join('kartikel', 'kartikel.id_kartikel = posting.id_kartikel');
         // $this->db->order_by($order, $az);
-        $sql = $this->db->get();
+        $sql = $this->db->get($table, $number, $offset)->result();
         return $sql;
     }
     public function get_join2()
@@ -219,19 +243,19 @@ class Base_model extends CI_Model
     }
 
     public function getDefaultValues()
-   {
-      return [
-         'judul'        => '',
-         'seo_judul'    => '',
-         'konten'      => '',
-         'description'      => '',
-         'featured'     => 'N',
-         'choice'       => 'N',
-         'thread'       => 'N',
-         'id_category'  => '',
-         'photo'        => '',
-         'is_active'    => '1',
-         'date'         => ''
-      ];
-   }
+    {
+        return [
+            'judul'        => '',
+            'seo_judul'    => '',
+            'konten'      => '',
+            'description'      => '',
+            'featured'     => 'N',
+            'choice'       => 'N',
+            'thread'       => 'N',
+            'id_category'  => '',
+            'photo'        => '',
+            'is_active'    => '1',
+            'date'         => ''
+        ];
+    }
 }

@@ -1,8 +1,7 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog extends CI_Controller
-{
+class Blogg extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,8 +18,7 @@ class Blog extends CI_Controller
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
-
-	public function __construct()
+    public function __construct()
 	{
 		parent::__construct();
 		// cek_login();
@@ -35,7 +33,7 @@ class Blog extends CI_Controller
 		// START PAGINATION
 		$jumlah_data = $this->base->count('posting');
 
-		$config['base_url'] = base_url() . 'blog/index/';
+		$config['base_url'] = base_url() . 'blogg/index/';
 		$config['total_rows'] = $jumlah_data;
 		$config['per_page'] = 1;
 		$from = $this->uri->segment(3);
@@ -68,34 +66,11 @@ class Blog extends CI_Controller
 
 		$data['blog'] = $this->base->get_join('posting',$config['per_page'],$from);
 
-		$this->template->load('client/template', 'client/blog/blog', $data);
+		$this->template->load('client/template', 'client/blog/blogg', $data);
 	}
 
-	public function read($seo_judul)
+    public function read($seo)
     {
-        // $row = $this->base->getPosting($seo_judul);
-
-		// if($row){
-		// 	$data['posting']     = $row;
-		// 	$data['title']       = $row->judul;
-		// 	// $data['favicon']     = $this->identity->getIdentity();
-		// 	// $data['banner']      = $this->banner->getBanner();
-		// 	// $data['popular']     = $this->posting->getMostPopular();
-		// 	// $data['trending']    = $this->posting->getThread();
-		// 	// $data['category']    = $this->category->getCategory();
-		// 	// $data['page']        = 'news-detail';
-		// 	$this->load->view('front/layouts/app', $data);
-		// 	$this->template->load('client/template', 'client/blog/read', $data);
-		//  }else{
-		// 	redirect(base_url('home'));
-		//  }
-		// var_dump($seo_judul);
-		$row = $this->base->getPosting($seo_judul);
-		$data['kartikel'] = $this->base_model->get('kartikel')->result();
-
-		$data['posting'] = $row;
-		$data['title'] = $row->judul;
-		
-		$this->template->load('client/template', 'client/blog/read', $data);
+        
     }
 }
