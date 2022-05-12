@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Bulan Mei 2022 pada 09.30
+-- Waktu pembuatan: 12 Bulan Mei 2022 pada 08.01
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -29,24 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `barang` (
   `id_barang` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `harga` varchar(200) NOT NULL,
   `status` varchar(50) NOT NULL,
   `link_tokped` varchar(255) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `gambar_name` varchar(255) NOT NULL,
+  `id_kproduk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `name`, `description`, `status`, `link_tokped`, `id_user`) VALUES
-(1, 'Fiber Optic Cable', 'asd', 'Tersedia', 'tes', 1),
-(7, 'Fiber Optic Cable', 'TES 2020', 'Tersedia', 'tes', 1),
-(8, 'Able printer', 'asdas', 'Tersedia', '', 1),
-(9, 'Gendero', 'Tes', 'Tersedia', '', 21),
-(10, 'Proyektor ', 'TES BEH', 'Tersedia', '', 22),
-(11, '', '', 'Tersedia', '', 22);
+INSERT INTO `barang` (`id_barang`, `name`, `description`, `harga`, `status`, `link_tokped`, `gambar_name`, `id_kproduk`) VALUES
+(4, 'Grinder', '<p>TESTING DESC</p>\r\n', '100000', 'Tersedia', 'https:/tokopedia.com', 'pos5.jpeg', 2),
+(5, 'Tes', '<p>asdasd</p>\r\n', '5000000', 'Tersedia', 'asdasd', 'pos4.jpeg', 1),
+(6, 'Breville Coffee Machine ', '<p>asdasdasd</p>\r\n', '283912', 'Tersedia', 'asdasd', 'day-MATTE-600x6002.jpg', 2),
+(7, 'akshdjahl', '<p>asdljjaksbdkja</p>\r\n', '12831', 'Tersedia', 'askhdjadsk', 'bali.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,8 @@ INSERT INTO `kproduk` (`id_kproduk`, `nama`, `isActive`) VALUES
 CREATE TABLE `media` (
   `id_media` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `id_barang` int(11) NOT NULL
+  `id_barang` int(11) DEFAULT NULL,
+  `id_posting` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -136,6 +137,7 @@ CREATE TABLE `posting` (
   `featured` char(1) NOT NULL,
   `choice` char(1) NOT NULL,
   `thread` char(1) NOT NULL,
+  `gambar_name` varchar(255) NOT NULL,
   `id_kartikel` int(11) NOT NULL,
   `isActive` int(11) NOT NULL,
   `date` date NOT NULL
@@ -145,10 +147,9 @@ CREATE TABLE `posting` (
 -- Dumping data untuk tabel `posting`
 --
 
-INSERT INTO `posting` (`id_posting`, `judul`, `seo_judul`, `konten`, `featured`, `choice`, `thread`, `id_kartikel`, `isActive`, `date`) VALUES
-(3, 'Testing Judul', 'testing-judul', '<p>1. Testing&nbsp;</p>\r\n\r\n<p>2. TESTINGGG</p>\r\n\r\n<p>3. TESTING</p>\r\n', 'N', 'Y', 'N', 3, 1, '2022-05-03'),
-(4, 'Testing Judul', 'testing-judul', '<p>1. Testing&nbsp;</p>\r\n\r\n<p>2. TESTINGGG</p>\r\n\r\n<p>3. TESTING</p>\r\n', 'N', 'Y', 'N', 3, 1, '2022-05-03'),
-(5, 'Testing Judul Baru Koopen', 'testing-judul-baru-koopen', '<p><strong>Buat artikel Baru</strong></p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n', 'N', 'N', 'N', 2, 1, '2022-05-03');
+INSERT INTO `posting` (`id_posting`, `judul`, `seo_judul`, `konten`, `featured`, `choice`, `thread`, `gambar_name`, `id_kartikel`, `isActive`, `date`) VALUES
+(6, 'Testing dengan gambar', 'testing-dengan-gambar', '<p>Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel&nbsp;Testing Artikel vv</p>\r\n', '<', 'Y', 'N', 'bali.jpg', 3, 1, '2022-05-10'),
+(7, 'Testing dengan gambar 2', 'testing-dengan-gambar-2', '<p>Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;Testing gambar 2&nbsp;</p>\r\n', '<', 'N', 'N', 'f2af26e2589f6204a2c73d758f249ae5', 3, 1, '2022-05-10');
 
 -- --------------------------------------------------------
 
@@ -169,7 +170,9 @@ INSERT INTO `slide` (`id_slide`, `gambar_name`) VALUES
 (1, 'ikan-koi-sampul5.jpg'),
 (2, 'pos_3.jpg'),
 (3, 'ikan-koi-sampul6.jpg'),
-(4, 'ikan-koi-sampul7.jpg');
+(4, 'ikan-koi-sampul7.jpg'),
+(5, 'bali.jpg'),
+(6, 'bali1.jpg');
 
 -- --------------------------------------------------------
 
@@ -209,7 +212,7 @@ INSERT INTO `user` (`id_user`, `nama`, `username`, `email`, `no_telp`, `role`, `
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_kproduk` (`id_kproduk`);
 
 --
 -- Indeks untuk tabel `kartikel`
@@ -228,7 +231,8 @@ ALTER TABLE `kproduk`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id_media`),
-  ADD KEY `id_barang` (`id_barang`);
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_posting` (`id_posting`);
 
 --
 -- Indeks untuk tabel `partner`
@@ -263,7 +267,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `kartikel`
@@ -293,13 +297,13 @@ ALTER TABLE `partner`
 -- AUTO_INCREMENT untuk tabel `posting`
 --
 ALTER TABLE `posting`
-  MODIFY `id_posting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_posting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `slide`
 --
 ALTER TABLE `slide`
-  MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -315,13 +319,14 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_kproduk`) REFERENCES `kproduk` (`id_kproduk`);
 
 --
 -- Ketidakleluasaan untuk tabel `media`
 --
 ALTER TABLE `media`
-  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
+  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`),
+  ADD CONSTRAINT `media_ibfk_2` FOREIGN KEY (`id_posting`) REFERENCES `posting` (`id_posting`);
 
 --
 -- Ketidakleluasaan untuk tabel `posting`
