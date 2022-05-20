@@ -15,17 +15,17 @@ class Posting extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Posting Artikel";
-        $data['posting'] = $this->base_model->get_join()->result();
+        $data['posting'] = $this->base_model->getPosting()->result();
         $this->template->load('template', 'posting/data', $data);
     }
 
     public function add()
     {
-        if(!$_POST){
-			$input = (object) $this->base_model->getDefaultValues();
-		}else{
-			$input = (object) $this->input->post(null, true);
-		}
+        if (!$_POST) {
+            $input = (object) $this->base_model->getDefaultValues();
+        } else {
+            $input = (object) $this->input->post(null, true);
+        }
         $data['title'] = "Buat Artikel Baru";
         $data['kategori'] = $this->base_model->getOrder('kartikel')->result();
         $data['input'] = $input;
@@ -34,41 +34,39 @@ class Posting extends CI_Controller
     }
 
     public function insertdata()
-	{
-		// $tanggal = date("Y-m-d");
-		// $login = userdata('id_user');
+    {
+        // $tanggal = date("Y-m-d");
+        // $login = userdata('id_user');
 
-		$config['upload_path']          = './assets/img/uploads/artikel/';
-		$config['allowed_types']        = 'jpg|png';
-		$config['max_size']             = 5000;
-		$config['max_width']            = 10000;
-		$config['max_height']           = 10000;
+        $config['upload_path']          = './assets/img/uploads/artikel/';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 5000;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
 
-		$this->load->library('upload', $config);
+        $this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload('userfile')) {
-			// $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
+        if (!$this->upload->do_upload('userfile')) {
 
-			// redirect('campaign/add');
-			$gambar = $this->upload->data();
-			$gambar =  $gambar['file_name'];
+            $gambar = $this->upload->data();
+            $gambar =  $gambar['file_name'];
             $judul = $this->input->post('judul');
             $seo = slugify($this->input->post('judul'));
             $konten = $this->input->post('konten');
-            $featured =$this->input->post('featured');
+            $featured = $this->input->post('featured');
             $choice = $this->input->post('choice');
             $thread = $this->input->post('thread');
             $id_kartikel = $this->input->post('kategori');
             $isActive = 1;
             $date = date('Y-m-d');
 
-			// $tittle = $this->input->post('tittle_twibbon', TRUE);
-			// $deskripsi = $this->input->post('deskripsi', TRUE);
-			// $date = date("Y-m-d h:i:sa");
-			// $id_user = userdata('id_user');
+            // $tittle = $this->input->post('tittle_twibbon', TRUE);
+            // $deskripsi = $this->input->post('deskripsi', TRUE);
+            // $date = date("Y-m-d h:i:sa");
+            // $id_user = userdata('id_user');
 
-			$data = array(
-				'judul' => $judul,
+            $data = array(
+                'judul' => $judul,
                 'seo_judul' => $seo,
                 'konten' => $konten,
                 'featured' => $featured,
@@ -78,25 +76,25 @@ class Posting extends CI_Controller
                 'id_kartikel' => $id_kartikel,
                 'isActive' => $isActive,
                 'date' => $date
-			);
-			// var_dump($data);
-		} else {
+            );
+            // var_dump($data);
+        } else {
 
-			$gambar = $this->upload->data();
-			$gambar =  md5($gambar['file_name']);
+            $gambar = $this->upload->data();
+            $gambar =  $gambar['file_name'];
             $judul = $this->input->post('judul');
             $seo = slugify($this->input->post('judul'));
             $konten = $this->input->post('konten');
-            $featured =$this->input->post('featured');
+            $featured = $this->input->post('featured');
             $choice = $this->input->post('choice');
             $thread = $this->input->post('thread');
             $id_kartikel = $this->input->post('kategori');
             $isActive = 1;
             $date = date('Y-m-d');
 
-			$data = array(
-				
-				'judul' => $judul,
+            $data = array(
+
+                'judul' => $judul,
                 'seo_judul' => $seo,
                 'konten' => $konten,
                 'featured' => $featured,
@@ -106,16 +104,16 @@ class Posting extends CI_Controller
                 'id_kartikel' => $id_kartikel,
                 'isActive' => $isActive,
                 'date' => $date
-				
-			);
 
-			// var_dump($data);
-			$this->base_model->insert('posting', $data);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+            );
 
-			redirect('admin/posting');
-		}
-	}
+            // var_dump($data);
+            $this->base_model->insert('posting', $data);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+
+            redirect('admin/posting');
+        }
+    }
 
     public function delete($getId)
     {

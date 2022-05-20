@@ -1,14 +1,3 @@
-<!-- Title Page -->
-<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(<?= base_url() ?>assets/client/images/heading-pages-02.jpg);">
-    <h2 class="l-text2 t-center">
-        Women
-    </h2>
-    <p class="m-text13 t-center">
-        New Arrivals Women Collection 2018
-    </p>
-</section>
-
-
 <!-- Content page -->
 <section class="bgwhite p-t-55 p-b-65">
     <div class="container">
@@ -16,7 +5,6 @@
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
                 <div class="leftbar p-r-20 p-r-0-sm">
                     <!--  -->
-
                     <div class="search-product pos-relative bo4 of-hidden">
                         <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
 
@@ -38,7 +26,7 @@
                         <?php foreach ($kproduk as $key => $data) { ?>
                             <li class="p-t-4">
                                 <a href="#" class="s-text13">
-                                    <?= $data->nama?>
+                                    <?= $data->nama ?>
                                 </a>
                             </li>
                         <?php } ?>
@@ -53,7 +41,7 @@
             <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
                 <!--  -->
                 <div class="flex-sb-m flex-w p-b-35">
-                    <div class="flex-w">
+                    <!-- <div class="flex-w">
                         <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
                             <select class="selection-2" name="sorting">
                                 <option>Default Sorting</option>
@@ -74,9 +62,9 @@
 
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <span class="s-text8 p-t-5 p-b-5">
+                    <span class="s-text8 p-t-5 p-b-5 pull-right">
                         Showing 1–12 of 16 results
                     </span>
                 </div>
@@ -89,25 +77,22 @@
                             <!-- Block2 -->
                             <div class="block2">
                                 <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                                    <img src="<?= base_url() ?>assets/img/uploads/produk/<? $data->gambar_name ?>" alt="IMG-PRODUCT">
+                                    <img src="<?= base_url() ?>assets/img/uploads/produk/<?= $data->gambar_name ?>" alt="IMG-PRODUCT" width="150" height="300">
 
-                                    <div class="block2-overlay trans-0-4">
+                                    <div class="block2-overlay">
                                         <div class="block2-btn-addcart w-size1 trans-0-4">
-                                            <!-- Button -->
-                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                                Detail
-                                            </button>
+                                            <a href="<?= site_url("shop/detail/$data->seo_name") ?>" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">Detail</a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="block2-txt p-t-20">
-                                    <a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-                                        <?= character_limiter($data->name, 50) ?>
+                                    <a href="<?= site_url("shop/detail/$data->seo_name") ?>" class="block2-name dis-block s-text3 p-b-5">
+                                        <b><?= character_limiter($data->name, 31) ?></b>
                                     </a>
 
                                     <span class="block2-price m-text6 p-r-5">
-                                        Rp. <?= $data->harga?>
+                                        <?= "Rp " . number_format($data->harga, 2, ',', '.'); ?>
                                     </span>
                                 </div>
                             </div>

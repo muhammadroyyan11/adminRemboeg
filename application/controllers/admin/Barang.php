@@ -68,7 +68,7 @@ class Barang extends CI_Controller
         // $login = userdata('id_user');
 
         $config['upload_path']          = './assets/img/uploads/produk/';
-        $config['allowed_types']        = 'jpg|png';
+        $config['allowed_types']        = 'jpg|png|jpeg';
         $config['max_size']             = 5000;
         $config['max_width']            = 10000;
         $config['max_height']           = 10000;
@@ -81,17 +81,20 @@ class Barang extends CI_Controller
             // redirect('campaign/add');
             $gambar = $this->upload->data();
             $gambar =  $gambar['file_name'];
-
+            $seo = slugify($this->input->post('nama_barang'));
             $name = $this->input->post('nama_barang');
             $desc = $this->input->post('description');
             $status = $this->input->post('status');
             $link = $this->input->post('link_tokped');
+            $harga = $this->input->post('harga');
             $id_kproduk = $this->input->post('kategori');
 
             $data = array(
                 'name' => $name,
                 'description' => $desc,
                 'status' => $status,
+                'harga' => $harga,
+                'seo_name' => $seo,
                 'gambar_name' => $gambar,
                 'link_tokped' => $link,
                 'id_kproduk' => $id_kproduk,
@@ -100,13 +103,13 @@ class Barang extends CI_Controller
             $this->base_model->insert('barang', $data);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
             redirect('admin/barang');
-            
         } else {
 
             $gambar = $this->upload->data();
             $gambar =  $gambar['file_name'];
-
+            $harga = $this->input->post('harga');
             $name = $this->input->post('nama_barang');
+            $seo = slugify($this->input->post('nama_barang'));
             $desc = $this->input->post('description');
             $status = $this->input->post('status');
             $link = $this->input->post('link_tokped');
@@ -117,6 +120,8 @@ class Barang extends CI_Controller
                 'name' => $name,
                 'description' => $desc,
                 'status' => $status,
+                'harga' => $harga,
+                'seo_name' => $seo,
                 'gambar_name' => $gambar,
                 'link_tokped' => $link,
                 'id_kproduk' => $id_kproduk,

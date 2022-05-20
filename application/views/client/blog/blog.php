@@ -17,7 +17,7 @@
 					?>
 						<div class="item-blog p-b-80">
 							<a href="#" class="item-blog-img pos-relative dis-block hov-img-zoom">
-								<img src="<?= base_url() ?>assets/img/uploads/artikel/<?= $data->gambar_name?>" alt="IMG-BLOG">
+								<img src="<?= base_url() ?>assets/img/uploads/slide/<?= $data->gambar_name?>" alt="IMG-BLOG">
 
 								<span class="item-blog-date dis-block flex-c-m pos1 size17 bg4 s-text1">
 									<?= $dateMasuk->format('d F Y') ?>
@@ -40,10 +40,6 @@
 									<span>
 										<?= $data->nama ?>
 										<span class="m-l-3 m-r-6">|</span>
-									</span>
-
-									<span>
-										8 Comments
 									</span>
 								</div>
 

@@ -37,7 +37,7 @@ class Blog extends CI_Controller
 
 		$config['base_url'] = base_url() . 'blog/index/';
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 1;
+		$config['per_page'] = 5;
 		$from = $this->uri->segment(3);
 
 		// TAMPILAN NOMER PAGINATION
@@ -73,23 +73,6 @@ class Blog extends CI_Controller
 
 	public function read($seo_judul)
     {
-        // $row = $this->base->getPosting($seo_judul);
-
-		// if($row){
-		// 	$data['posting']     = $row;
-		// 	$data['title']       = $row->judul;
-		// 	// $data['favicon']     = $this->identity->getIdentity();
-		// 	// $data['banner']      = $this->banner->getBanner();
-		// 	// $data['popular']     = $this->posting->getMostPopular();
-		// 	// $data['trending']    = $this->posting->getThread();
-		// 	// $data['category']    = $this->category->getCategory();
-		// 	// $data['page']        = 'news-detail';
-		// 	$this->load->view('front/layouts/app', $data);
-		// 	$this->template->load('client/template', 'client/blog/read', $data);
-		//  }else{
-		// 	redirect(base_url('home'));
-		//  }
-		// var_dump($seo_judul);
 		$row = $this->base->getPosting($seo_judul);
 		$data['kartikel'] = $this->base_model->get('kartikel')->result();
 

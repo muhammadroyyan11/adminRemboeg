@@ -30,718 +30,359 @@
 
 <!-- Banner -->
 <section class="banner bgwhite p-t-40 p-b-40">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-				<!-- block1 -->
-				<div class="block1 hov-img-zoom pos-relative m-b-30">
-					<img src="<?= base_url() ?>assets/client/images/banner-02.jpg" alt="IMG-BENNER">
-
-					<div class="block1-wrapbtn w-size2">
-						<!-- Button -->
-						<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-							Dresses
-						</a>
+	<!-- content page -->
+	<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-b-30">
+					<div class="p-r-20 p-r-0-lg">
+						<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3457037925755!2d112.62350611415637!3d-7.96317998156597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629bdff033567%3A0xfbbfda9bd7b03474!2sKopi%20Koopen%20Ijen!5e0!3m2!1sid!2sid!4v1652893988189!5m2!1sid!2sid" width="570" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+						<img src="<?= base_url() ?>assets/img/uploads/koopen.jpg" alt="" style="width: 100%;">
 					</div>
 				</div>
 
-				<!-- block1 -->
-				<div class="block1 hov-img-zoom pos-relative m-b-30">
-					<img src="<?= base_url() ?>assets/client/images/banner-05.jpg" alt="IMG-BENNER">
+				<div class="col-md-6 p-b-30">
+					<b>
+						<h3 class="m-text5 t-center">Kedai Kopi Koopen</h3>
+					</b><br>
+					<p align="justify">Nama toko ini diambil dari bahasa Belanda “Koopen” yang artinya membeli. Alasan pemilik toko memberi nama dengan bahasa Belanda, karena Malang memiliki kaitan sejarah yang erat dengan Belanda pada masanya. Bahkan sampai saat ini banyak pengunjung dari negeri Belanda yang tertarik untuk merasakan kenikmatan kopi lokal sambil menikmati keindahan Kota Malang.</p><br>
+					<p align="justify">Selain itu, Anda dapat memilih sendiri biji kopi yang telah disusun dalam toples ketika akan memesan. Harga kopi disini sangat terjangkau. Mulai dari Rp10.000,00 saja, Anda dapat menikmati seduhan kopi dengan nuansa heritage.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-					<div class="block1-wrapbtn w-size2">
-						<!-- Button -->
-						<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-							Sunglasses
-						</a>
-					</div>
+
+	<!-- New Product -->
+	<section class="newproduct bgwhite p-t-45 p-b-105">
+		<div class="container">
+			<div class="sec-title p-b-60">
+				<h3 class="m-text5 t-center">
+					Shop
+				</h3>>
+			</div>
+
+			<!-- Slide2 -->
+			<div class="wrap-slick2">
+				<div class="slick2">
+
+					<?php foreach ($barang as $key => $data) { ?>
+						<div class="item-slick2 p-l-15 p-r-15">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative">
+									<img src="<?= base_url() ?>assets/img/uploads/produk/<?= $data->gambar_name ?>" alt="IMG-PRODUCT" width="150" height="300">
+
+									<div class="block2-overlay trans-0-4">
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button -->
+											<a href="<?= site_url("shop/detail/$data->seo_name") ?>" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+												Detail
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="<?= site_url("shop/detail/$data->seo_name") ?>" class="block2-name dis-block s-text3 p-b-5">
+										<b><?= character_limiter($data->name, 31) ?></b>
+									</a>
+
+									<span class="block2-price m-text6 p-r-5">
+										<?= "Rp " . number_format($data->harga, 2, ',', '.'); ?>
+									</span>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 
-			<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-				<!-- block1 -->
-				<div class="block1 hov-img-zoom pos-relative m-b-30">
-					<img src="<?= base_url() ?>assets/client/images/banner-03.jpg" alt="IMG-BENNER">
+		</div>
+	</section>
 
-					<div class="block1-wrapbtn w-size2">
-						<!-- Button -->
-						<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-							Watches
-						</a>
-					</div>
-				</div>
+	<!-- Banner2 -->
+	<section class="banner2 bg5 p-t-55 p-b-55">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+					<div class="hov-img-zoom pos-relative">
+						<img src="<?= base_url() ?>assets/img/uploads/kopikoopen.jpg" alt="IMG-BANNER" width="100" height="427">
 
-				<!-- block1 -->
-				<div class="block1 hov-img-zoom pos-relative m-b-30">
-					<img src="<?= base_url() ?>assets/client/images/banner-07.jpg" alt="IMG-BENNER">
+						<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
+							<span class="m-text9 p-t-45 fs-20-sm">
+								Find Us
+							</span>
 
-					<div class="block1-wrapbtn w-size2">
-						<!-- Button -->
-						<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-							Footerwear
-						</a>
-					</div>
-				</div>
-			</div>
+							<h3 class="l-text1 fs-35-sm">
+								Outlets
+							</h3>
 
-			<div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-				<!-- block1 -->
-				<div class="block1 hov-img-zoom pos-relative m-b-30">
-					<img src="<?= base_url() ?>assets/client/images/banner-04.jpg" alt="IMG-BENNER">
-
-					<div class="block1-wrapbtn w-size2">
-						<!-- Button -->
-						<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-							Bags
-						</a>
-					</div>
-				</div>
-
-				<!-- block2 -->
-				<div class="block2 wrap-pic-w pos-relative m-b-30">
-					<img src="<?= base_url() ?>assets/client/images/icons/bg-01.jpg" alt="IMG">
-
-					<div class="block2-content sizefull ab-t-l flex-col-c-m">
-						<h4 class="m-text4 t-center w-size3 p-b-8">
-							Sign up & get 20% off
-						</h4>
-
-						<p class="t-center w-size4">
-							Be the frist to know about the latest fashion news and get exclu-sive offers
-						</p>
-
-						<div class="w-size2 p-t-25">
-							<!-- Button -->
-							<a href="#" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-								Sign Up
+							<a href="#" class="s-text4 hov2 p-t-20 ">
+								View Outlets
 							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
+					<div class="bgwhite hov-img-zoom pos-relative p-b-20per-ssm">
+						<img src="<?= base_url() ?>assets/client/images/shop-item-09.jpg" alt="IMG-BANNER">
+
+						<div class="ab-t-l sizefull flex-col-c-b p-l-15 p-r-15 p-b-20">
+							<div class="t-center">
+								<a href="product-detail.html" class="dis-block s-text3 p-b-5">
+									Gafas sol Hawkers one
+								</a>
+
+								<span class="block2-oldprice m-text7 p-r-5">
+									$29.50
+								</span>
+
+								<span class="block2-newprice m-text8">
+									$15.90
+								</span>
+							</div>
+
+							<div class="flex-c-m p-t-44 p-t-30-xl">
+								<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
+									<span class="m-text10 p-b-1 days">
+										69
+									</span>
+
+									<span class="s-text5">
+										days
+									</span>
+								</div>
+
+								<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
+									<span class="m-text10 p-b-1 hours">
+										04
+									</span>
+
+									<span class="s-text5">
+										hrs
+									</span>
+								</div>
+
+								<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
+									<span class="m-text10 p-b-1 minutes">
+										32
+									</span>
+
+									<span class="s-text5">
+										mins
+									</span>
+								</div>
+
+								<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
+									<span class="m-text10 p-b-1 seconds">
+										05
+									</span>
+
+									<span class="s-text5">
+										secs
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- New Product -->
-<section class="newproduct bgwhite p-t-45 p-b-105">
-	<div class="container">
-		<div class="sec-title p-b-60">
+
+	<!-- Blog -->
+	<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="container">
+			<div class="sec-title p-b-52">
+				<h3 class="m-text5 t-center">
+					Our Blog
+				</h3>
+			</div>
+
+			<div class="row">
+				<?php foreach ($posting as $key => $data) {
+					$dateMasuk = new DateTime($data->date);
+				?>
+					<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+						<!-- Block3 -->
+						<div class="block3">
+							<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+								<img src="<?= base_url() ?>assets/img/uploads/artikel/<?= $data->gambar_name ?>" alt="IMG-BLOG" width="100" height="240">
+							</a>
+
+							<div class="block3-txt p-t-14">
+								<h4 class="p-b-7">
+									<a href="blog-detail.html" class="m-text11">
+										<?= $data->judul ?>
+									</a>
+								</h4>
+
+								<span class="s-text6">By</span> <span class="s-text7">Admin</span>
+								<span class="s-text6">on</span> <span class="s-text7"><?= $dateMasuk->format('d F Y') ?></span>
+
+								<?= character_limiter($data->konten, 200) ?>
+								<br>
+								<a href="<?= base_url("blog/read/$data->seo_judul") ?>" class="s-text20">
+									Continue Reading
+									<i class="fa fa-long-arrow-right m-l-8" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+	</section>
+
+	<!-- Instagram -->
+	<section class="instagram p-t-20">
+		<div class="sec-title p-b-52 p-l-15 p-r-15">
 			<h3 class="m-text5 t-center">
-				Featured Products
+				@ follow us on Instagram
 			</h3>
 		</div>
 
-		<!-- Slide2 -->
-		<div class="wrap-slick2">
-			<div class="slick2">
+		<div class="flex-w">
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="<?= base_url() ?>assets/client/images/gallery-03.jpg" alt="IMG-INSTAGRAM">
 
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-							<img src="<?= base_url() ?>assets/client/images/item-02.jpg" alt="IMG-PRODUCT">
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
 
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
 
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Herschel supply co 25l
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								$75.00
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative">
-							<img src="<?= base_url() ?>assets/client/images/item-03.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Denim jacket blue
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								$92.50
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative">
-							<img src="<?= base_url() ?>assets/client/images/item-05.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Coach slim easton black
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								$165.90
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-							<img src="<?= base_url() ?>assets/client/images/item-07.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Frayed denim shorts
-							</a>
-
-							<span class="block2-oldprice m-text7 p-r-5">
-								$29.50
-							</span>
-
-							<span class="block2-newprice m-text8 p-r-5">
-								$15.90
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-							<img src="<?= base_url() ?>assets/client/images/item-02.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Herschel supply co 25l
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								$75.00
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative">
-							<img src="<?= base_url() ?>assets/client/images/item-03.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Denim jacket blue
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								$92.50
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative">
-							<img src="<?= base_url() ?>assets/client/images/item-05.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Coach slim easton black
-							</a>
-
-							<span class="block2-price m-text6 p-r-5">
-								$165.90
-							</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="item-slick2 p-l-15 p-r-15">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelsale">
-							<img src="<?= base_url() ?>assets/client/images/item-07.jpg" alt="IMG-PRODUCT">
-
-							<div class="block2-overlay trans-0-4">
-								<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-									<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-									<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-								</a>
-
-								<div class="block2-btn-addcart w-size1 trans-0-4">
-									<!-- Button -->
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-										Add to Cart
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="block2-txt p-t-20">
-							<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-								Frayed denim shorts
-							</a>
-
-							<span class="block2-oldprice m-text7 p-r-5">
-								$29.50
-							</span>
-
-							<span class="block2-newprice m-text8 p-r-5">
-								$15.90
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</section>
-
-<!-- Banner2 -->
-<section class="banner2 bg5 p-t-55 p-b-55">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-				<div class="hov-img-zoom pos-relative">
-					<img src="<?= base_url() ?>assets/client/images/banner-08.jpg" alt="IMG-BANNER">
-
-					<div class="ab-t-l sizefull flex-col-c-m p-l-15 p-r-15">
-						<span class="m-text9 p-t-45 fs-20-sm">
-							The Beauty
+						<span class="s-text9">
+							Photo by @nancyward
 						</span>
-
-						<h3 class="l-text1 fs-35-sm">
-							Lookbook
-						</h3>
-
-						<a href="#" class="s-text4 hov2 p-t-20 ">
-							View Collection
-						</a>
 					</div>
-				</div>
+				</a>
 			</div>
 
-			<div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
-				<div class="bgwhite hov-img-zoom pos-relative p-b-20per-ssm">
-					<img src="<?= base_url() ?>assets/client/images/shop-item-09.jpg" alt="IMG-BANNER">
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="<?= base_url() ?>assets/client/images/gallery-07.jpg" alt="IMG-INSTAGRAM">
 
-					<div class="ab-t-l sizefull flex-col-c-b p-l-15 p-r-15 p-b-20">
-						<div class="t-center">
-							<a href="product-detail.html" class="dis-block s-text3 p-b-5">
-								Gafas sol Hawkers one
-							</a>
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
 
-							<span class="block2-oldprice m-text7 p-r-5">
-								$29.50
-							</span>
-
-							<span class="block2-newprice m-text8">
-								$15.90
-							</span>
-						</div>
-
-						<div class="flex-c-m p-t-44 p-t-30-xl">
-							<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-								<span class="m-text10 p-b-1 days">
-									69
-								</span>
-
-								<span class="s-text5">
-									days
-								</span>
-							</div>
-
-							<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-								<span class="m-text10 p-b-1 hours">
-									04
-								</span>
-
-								<span class="s-text5">
-									hrs
-								</span>
-							</div>
-
-							<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-								<span class="m-text10 p-b-1 minutes">
-									32
-								</span>
-
-								<span class="s-text5">
-									mins
-								</span>
-							</div>
-
-							<div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-								<span class="m-text10 p-b-1 seconds">
-									05
-								</span>
-
-								<span class="s-text5">
-									secs
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<!-- Blog -->
-<section class="blog bgwhite p-t-94 p-b-65">
-	<div class="container">
-		<div class="sec-title p-b-52">
-			<h3 class="m-text5 t-center">
-				Our Blog
-			</h3>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-				<!-- Block3 -->
-				<div class="block3">
-					<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-						<img src="<?= base_url() ?>assets/client/images/blog-01.jpg" alt="IMG-BLOG">
-					</a>
-
-					<div class="block3-txt p-t-14">
-						<h4 class="p-b-7">
-							<a href="blog-detail.html" class="m-text11">
-								Black Friday Guide: Best Sales & Discount Codes
-							</a>
-						</h4>
-
-						<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-						<span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>
-
-						<p class="s-text8 p-t-16">
-							Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
 						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
 					</div>
-				</div>
+				</a>
 			</div>
 
-			<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-				<!-- Block3 -->
-				<div class="block3">
-					<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-						<img src="<?= base_url() ?>assets/client/images/blog-02.jpg" alt="IMG-BLOG">
-					</a>
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="<?= base_url() ?>assets/client/images/gallery-09.jpg" alt="IMG-INSTAGRAM">
 
-					<div class="block3-txt p-t-14">
-						<h4 class="p-b-7">
-							<a href="blog-detail.html" class="m-text11">
-								The White Sneakers Nearly Every Fashion Girls Own
-							</a>
-						</h4>
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
 
-						<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-						<span class="s-text6">on</span> <span class="s-text7">July 18, 2017</span>
-
-						<p class="s-text8 p-t-16">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
 						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
 					</div>
-				</div>
+				</a>
 			</div>
 
-			<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-				<!-- Block3 -->
-				<div class="block3">
-					<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-						<img src="<?= base_url() ?>assets/client/images/blog-03.jpg" alt="IMG-BLOG">
-					</a>
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="<?= base_url() ?>assets/client/images/gallery-13.jpg" alt="IMG-INSTAGRAM">
 
-					<div class="block3-txt p-t-14">
-						<h4 class="p-b-7">
-							<a href="blog-detail.html" class="m-text11">
-								New York SS 2018 Street Style: Annina Mislin
-							</a>
-						</h4>
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
 
-						<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-						<span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>
-
-						<p class="s-text8 p-t-16">
-							Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
 						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
 					</div>
-				</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="<?= base_url() ?>assets/client/images/gallery-15.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
-<!-- Instagram -->
-<section class="instagram p-t-20">
-	<div class="sec-title p-b-52 p-l-15 p-r-15">
-		<h3 class="m-text5 t-center">
-			@ follow us on Instagram
-		</h3>
-	</div>
+	<!-- Shipping -->
+	<section class="shipping bgwhite p-t-62 p-b-46">
+		<div class="flex-w p-l-15 p-r-15">
+			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+				<h4 class="m-text12 t-center">
+					𝐌𝐚𝐧𝐮𝐚𝐥 𝐁𝐫𝐞𝐰𝐢𝐧𝐠
+				</h4>
+			</div>
 
-	<div class="flex-w">
-		<!-- Block4 -->
-		<div class="block4 wrap-pic-w">
-			<img src="<?= base_url() ?>assets/client/images/gallery-03.jpg" alt="IMG-INSTAGRAM">
+			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+				<h4 class="m-text12 t-center">
+					𝗦𝗲𝗻𝗶𝗻 - 𝗠𝗶𝗻𝗴𝗴𝘂 : 𝟬𝟳.𝟬𝟬 - 𝟮𝟯.𝟬𝟬</h4>
+				<h4 class="m-text12 t-center">𝗝𝘂𝗺’𝗮𝘁 : 𝟭𝟯.𝟬𝟬 - 𝟮𝟯.𝟬𝟬</h4>
 
-			<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-				<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-					<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-					<span class="p-t-2">39</span>
+
+				<span class="s-text11 t-center">
+
 				</span>
+			</div>
 
-				<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-					<p class="s-text10 m-b-15 h-size1 of-hidden">
-						Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-					</p>
-
-					<span class="s-text9">
-						Photo by @nancyward
-					</span>
-				</div>
-			</a>
+			<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+				<h4 class="m-text12 t-center">
+					𝐒𝐞𝐝𝐢𝐚 𝐁𝐢𝐣𝐢 𝐊𝐨𝐩𝐢 (𝐑𝐨𝐚𝐬𝐭 𝐁𝐞𝐚𝐧)
+				</h4>
+			</div>
 		</div>
-
-		<!-- Block4 -->
-		<div class="block4 wrap-pic-w">
-			<img src="<?= base_url() ?>assets/client/images/gallery-07.jpg" alt="IMG-INSTAGRAM">
-
-			<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-				<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-					<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-					<span class="p-t-2">39</span>
-				</span>
-
-				<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-					<p class="s-text10 m-b-15 h-size1 of-hidden">
-						Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-					</p>
-
-					<span class="s-text9">
-						Photo by @nancyward
-					</span>
-				</div>
-			</a>
-		</div>
-
-		<!-- Block4 -->
-		<div class="block4 wrap-pic-w">
-			<img src="<?= base_url() ?>assets/client/images/gallery-09.jpg" alt="IMG-INSTAGRAM">
-
-			<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-				<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-					<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-					<span class="p-t-2">39</span>
-				</span>
-
-				<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-					<p class="s-text10 m-b-15 h-size1 of-hidden">
-						Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-					</p>
-
-					<span class="s-text9">
-						Photo by @nancyward
-					</span>
-				</div>
-			</a>
-		</div>
-
-		<!-- Block4 -->
-		<div class="block4 wrap-pic-w">
-			<img src="<?= base_url() ?>assets/client/images/gallery-13.jpg" alt="IMG-INSTAGRAM">
-
-			<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-				<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-					<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-					<span class="p-t-2">39</span>
-				</span>
-
-				<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-					<p class="s-text10 m-b-15 h-size1 of-hidden">
-						Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-					</p>
-
-					<span class="s-text9">
-						Photo by @nancyward
-					</span>
-				</div>
-			</a>
-		</div>
-
-		<!-- Block4 -->
-		<div class="block4 wrap-pic-w">
-			<img src="<?= base_url() ?>assets/client/images/gallery-15.jpg" alt="IMG-INSTAGRAM">
-
-			<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-				<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-					<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-					<span class="p-t-2">39</span>
-				</span>
-
-				<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-					<p class="s-text10 m-b-15 h-size1 of-hidden">
-						Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-					</p>
-
-					<span class="s-text9">
-						Photo by @nancyward
-					</span>
-				</div>
-			</a>
-		</div>
-	</div>
-</section>
-
-<!-- Shipping -->
-<section class="shipping bgwhite p-t-62 p-b-46">
-	<div class="flex-w p-l-15 p-r-15">
-		<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-			<h4 class="m-text12 t-center">
-				Free Delivery Worldwide
-			</h4>
-
-			<a href="#" class="s-text11 t-center">
-				Click here for more info
-			</a>
-		</div>
-
-		<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
-			<h4 class="m-text12 t-center">
-				30 Days Return
-			</h4>
-
-			<span class="s-text11 t-center">
-				Simply return it within 30 days for an exchange.
-			</span>
-		</div>
-
-		<div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
-			<h4 class="m-text12 t-center">
-				Store Opening
-			</h4>
-
-			<span class="s-text11 t-center">
-				Shop open from Monday to Sunday
-			</span>
-		</div>
-	</div>
-</section>
+	</section>

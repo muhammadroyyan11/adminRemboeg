@@ -35,20 +35,8 @@ class Shop extends CI_Controller {
 		
 		$config['base_url'] = base_url().'shop/index/';
 		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 3;
+		$config['per_page'] = 12;
 		$from = $this->uri->segment(3);
-
-		// TAMPILAN NOMER PAGINATION
-		// $config['full_tag_open'] = '<div class="pagination flex-m flex-w p-t-26">';
-		// $config['full_tag_close'] = '</div>';
-
-		// // $config['first_link'] = 'First';
-		// $config['first_tag_open'] = '<a href="#" class="item-pagination flex-c-m trans-0-4">';
-		// $config['first_tag_close'] = '</a>';
-
-		// // $config['last_link'] = 'Last';
-		// $config['last_tag_open'] = '<a href="#" class="item-pagination flex-c-m trans-0-4">';
-		// $config['last_tag_close'] = '</a>';
 
 		$config['cur_tag_open'] = '<a href="#" class="item-pagination flex-c-m trans-0-4  active-pagination">';
 		$config['cur_tag_close'] = '</a>';
@@ -69,8 +57,14 @@ class Shop extends CI_Controller {
 		$this->template->load('client/template', 'client/shop/shop', $data);
 	}
 
-    public function detail()
+	public function detail($seo_name)
     {
-        $this->template->load('client/template', 'client/shop/detail');
+		$row = $this->base->getProduk($seo_name);
+		$data['kproduk'] = $this->base_model->get('kproduk')->result();
+
+		$data['produk'] = $row;
+		$data['title'] = $row->name;
+		
+		$this->template->load('client/template', 'client/shop/detail', $data);
     }
 }

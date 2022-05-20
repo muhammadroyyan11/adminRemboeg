@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class About extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -16,13 +16,10 @@ class Home extends CI_Controller {
 	 *
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
+	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
 	{
-		$data['home'] = $this->base_model->get('slide')->result();
-		$data['barang'] = $this->base_model->get_barang()->result();
-		$data['posting'] = $this->base_model->get_artikel()->result();
-		$this->template->load('client/template', 'client/dashboard/dashboard', $data);
+		$this->template->load('client/template', 'client/about/about');
 	}
 }

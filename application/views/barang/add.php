@@ -36,6 +36,16 @@
                         <div class="col-12">
                             <div class="form-group row">
                                 <div class="col-md-4">
+                                    <span>Harga</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="number" id="first-name" class="form-control" name="harga" placeholder="Masukkan nominal harga">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group row">
+                                <div class="col-md-4">
                                     <span>Kategori Artikel</span>
                                 </div>
                                 <div class="col-md-8">

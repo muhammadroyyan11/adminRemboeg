@@ -29,9 +29,6 @@ class Slide extends CI_Controller
 
     public function insertdata()
 	{
-		// $tanggal = date("Y-m-d");
-		// $login = userdata('id_user');
-
 		$config['upload_path']          = './assets/img/uploads/slide/';
 		$config['allowed_types']        = 'jpg|png';
 		$config['max_size']             = 5000;
@@ -39,20 +36,13 @@ class Slide extends CI_Controller
 		$config['max_height']           = 10000;
 
 		$this->load->library('upload', $config);
-
 		
-
-
 		if (!$this->upload->do_upload('userfile')) {
 			// $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
 
 			// redirect('campaign/add');
 			$gambar = $this->upload->data();
 			$gambar = $gambar['file_name'];
-			// $tittle = $this->input->post('tittle_twibbon', TRUE);
-			// $deskripsi = $this->input->post('deskripsi', TRUE);
-			// $date = date("Y-m-d h:i:sa");
-			// $id_user = userdata('id_user');
 
 			$data = array(
 				// 'tittle_twibbon' => $tittle,

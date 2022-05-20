@@ -60,6 +60,7 @@ class Base_model extends CI_Model
         return $sql;
     }
 
+
     public function count($table)
     {
         return $this->db->get($table)->num_rows();
@@ -67,9 +68,10 @@ class Base_model extends CI_Model
 
     function data($table, $number, $offset)
     {
-        return $query = $this->db->get($table, $number, $offset)->result();
+        $this->db->order_by('id_barang', 'desc');
+        $query = $this->db->get($table, $number, $offset)->result();
+        return $query;
     }
-
 
     public function getOrder()
     {
@@ -91,25 +93,33 @@ class Base_model extends CI_Model
         return $query;
     }
 
-    public function getCash($table, $order, $where)
+    public function getCash($table, $order)
     {
-        // $tanggal = date('Y-m-d');
         $this->db->select('*');
         $this->db->from($table);
-        $this->db->where($where);
         $this->db->order_by($order, 'DESC');
         $query = $this->db->get();
         return $query;
     }
 
-    public function get_uang($table, $order, $where)
+    public function get_barang()
     {
         // $tanggal = date('Y-m-d');
         $this->db->select('*');
-        $this->db->from($table);
-        $this->db->where($where);
-        $this->db->order_by($order, 'DESC');
+        $this->db->from('barang');
+        $this->db->order_by('id_barang', 'DESC');
         $this->db->limit(5);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function get_artikel()
+    {
+        // $tanggal = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('posting');
+        $this->db->order_by('id_posting', 'DESC');
+        $this->db->limit(3);
         $query = $this->db->get();
         return $query;
     }
@@ -169,13 +179,22 @@ class Base_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('posting');
-        $this->db->join('kartikel', 'kartikel.id_kartikel = posting. id_kartikel');
+        $this->db->join('kartikel', 'kartikel.id_kartikel = posting.id_kartikel');
         $this->db->where('seo_judul', $seo_judul);
         return $this->db->get()->row();
     }
 
+    public function getProduk($seo_name)
+    {
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->join('kproduk', 'kproduk.id_kproduk = barang.id_kproduk');
+        $this->db->where('seo_name', $seo_name);
+        return $this->db->get()->row();
+    }
 
-    public function get_join($table, $number, $offset)
+
+    public function get_join($table, $number = null, $offset = null)
     {
         // $this->db->select('*');
         // $this->db->from('posting');

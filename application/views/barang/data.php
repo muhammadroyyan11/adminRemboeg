@@ -31,7 +31,7 @@
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->name ?></td>
-                                            <td><?= character_limiter($data->description, 250) ?></td>
+                                            <td><?= character_limiter($data->description, 100) ?></td>
                                             <td><?= $data->link_tokped ?></td>
                                             <td><?= $data->status ?></td>
                                             <th>
