@@ -3,9 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Outlet extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        // cek_login();
+        date_default_timezone_set('Asia/Jakarta');
+        $this->load->model('Auth_model', 'auth');
+        $this->load->model('Base_model', 'base');
+		$this->load->library('pagination');
+    }
+
 	public function index()
 	{
 		// $data['galleries'] = $this->restapi->Apiget('https://admin.kofluckroastery.com/api/v1/galleries');
+        $data['outlet'] = $this->base->get('outlet')->result();
 		$this->template->load('client/template', 'client/outlet/outlet');
 	}
 

@@ -82,11 +82,11 @@
                             </li>
 
                             <li>
-                                <a href="<?= site_url('blog') ?>">Blog</a>
+                                <a href="<?= site_url('outlet') ?>">Outlet</a>
                             </li>
 
                             <li>
-                                <a href="<?= site_url('blogg') ?>">Blog 2</a>
+                                <a href="<?= site_url('blog') ?>">Blog</a>
                             </li>
 
                             <li>
@@ -160,11 +160,11 @@
                     </li>
 
                     <li class="item-menu-mobile">
-                        <a href="<?= site_url('blog')?>">Blog</a>
+                        <a href="<?= site_url('outlet')?>">Outlet</a>
                     </li>
 
                     <li class="item-menu-mobile">
-                        <a href="<?= site_url('blogg')?>">Blog 2</a>
+                        <a href="<?= site_url('blog')?>">Blog</a>
                     </li>
 
                     <li class="item-menu-mobile">
@@ -405,7 +405,7 @@
     </script>
 
     <!--===============================================================================================-->
-    <script src="<?= base_url() ?>assets/client/js/main.js"></script>
+    <script src="<?= base_url() ?>assets/client/js/main.js"></script>vv
 
 
 </body>

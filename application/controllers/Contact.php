@@ -20,11 +20,14 @@ class Contact extends CI_Controller
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function __construct()
-	{
-		parent::__construct();
-
-		$this->load->model('base_model', 'base');
-	} 
+    {
+        parent::__construct();
+        // cek_login();
+        date_default_timezone_set('Asia/Jakarta');
+        $this->load->model('Auth_model', 'auth');
+        $this->load->model('Base_model', 'base');
+		$this->load->library('pagination');
+    }
 	 
 	public function index()
 	{

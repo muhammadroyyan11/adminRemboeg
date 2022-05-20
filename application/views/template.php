@@ -138,6 +138,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class=" nav-item"><a href="#"><i class="feather icon-map"></i><span class="menu-title" data-i18n="Data List">Outlet</span></a>
+                    <ul class="menu-content">
+                        <li <?= $this->uri->segment(1) == 'outlet' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/outlet') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Data Outlet</span></a>
+                        </li>
+                    </ul>
+                </li>
                 <!-- <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title" data-i18n="Data List">Main Menu</span></a>
                     <ul class="menu-content">
                         <li <?= $this->uri->segment(1) == 'slide' || $this->uri->segment(1) == '' ? 'class="active nav-item"' : '' ?>><a href="<?= site_url('admin/slide') ?>"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">Content slide</span></a>
