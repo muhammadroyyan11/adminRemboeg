@@ -17,7 +17,7 @@ class Outlet extends CI_Controller {
 	{
 		// $data['galleries'] = $this->restapi->Apiget('https://admin.kofluckroastery.com/api/v1/galleries');
         $data['outlet'] = $this->base->get('outlet')->result();
-		$this->template->load('client/template', 'client/outlet/outlet');
+		$this->template->load('client/template', 'client/outlet/outlet', $data);
 	}
 
 	public function outlet_view($id)

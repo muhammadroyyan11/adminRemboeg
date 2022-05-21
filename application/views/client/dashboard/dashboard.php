@@ -35,18 +35,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 p-b-30">
-					<div class="p-r-20 p-r-0-lg">
-						<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3457037925755!2d112.62350611415637!3d-7.96317998156597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629bdff033567%3A0xfbbfda9bd7b03474!2sKopi%20Koopen%20Ijen!5e0!3m2!1sid!2sid!4v1652893988189!5m2!1sid!2sid" width="570" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-						<img src="<?= base_url() ?>assets/img/uploads/koopen.jpg" alt="" style="width: 100%;">
-					</div>
-				</div>
-
-				<div class="col-md-6 p-b-30">
 					<b>
 						<h3 class="m-text5 t-center">Kedai Kopi Koopen</h3>
 					</b><br>
 					<p align="justify">Nama toko ini diambil dari bahasa Belanda “Koopen” yang artinya membeli. Alasan pemilik toko memberi nama dengan bahasa Belanda, karena Malang memiliki kaitan sejarah yang erat dengan Belanda pada masanya. Bahkan sampai saat ini banyak pengunjung dari negeri Belanda yang tertarik untuk merasakan kenikmatan kopi lokal sambil menikmati keindahan Kota Malang.</p><br>
 					<p align="justify">Selain itu, Anda dapat memilih sendiri biji kopi yang telah disusun dalam toples ketika akan memesan. Harga kopi disini sangat terjangkau. Mulai dari Rp10.000,00 saja, Anda dapat menikmati seduhan kopi dengan nuansa heritage.</p>
+				</div>
+				<div class="col-md-6 p-b-30">
+					<div class="p-r-20 p-r-0-lg">
+						<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3457037925755!2d112.62350611415637!3d-7.96317998156597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629bdff033567%3A0xfbbfda9bd7b03474!2sKopi%20Koopen%20Ijen!5e0!3m2!1sid!2sid!4v1652893988189!5m2!1sid!2sid" width="570" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+						<img src="<?= base_url() ?>assets/img/uploads/koopen.jpg" alt="" style="width: 100%;">
+					</div>
 				</div>
 			</div>
 		</div>

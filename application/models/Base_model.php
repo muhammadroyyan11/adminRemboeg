@@ -60,6 +60,31 @@ class Base_model extends CI_Model
         return $sql;
     }
 
+    public function getBarang($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->order_by('name', 'ASC');
+        if ($id != null) {
+            $this->db->where('id_barang', $id);
+        }
+        $query = $this->db->get();
+
+        return $query;
+    }
+
+    public function editBarang($post)
+    {
+        $params['name'] = $post['nama_barang'];
+        // 
+        $params['link_tokped'] = $post['link_tokped'];
+        $params['harga'] = $post['harga'];
+        if (!empty($post['description'])) {
+            $params['description'] = $post['description'];
+        }
+        $this->db->where('id_barang', $post['id_barang']);
+        $this->db->update('barang', $params);
+    }
 
     public function count($table)
     {

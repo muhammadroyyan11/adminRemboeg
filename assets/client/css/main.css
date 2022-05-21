@@ -129,8 +129,6 @@ a:hover {
 }
 
 
-
-
 /* ------------------------------------ */
 
 h1,
@@ -146,7 +144,7 @@ p {
     font-family: Montserrat-Regular;
     font-size: 15px;
     line-height: 1.7;
-    color: #888888;
+    color: #4d4b4b;
     margin: 0px;
 }
 
@@ -2535,7 +2533,6 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .ttlAlternateHome {
-
     align-items: flex-end;
 }
 
@@ -2549,7 +2546,27 @@ input.num-product::-webkit-inner-spin-button {
     color: #fa2337;
 }
 
+
 /* HUBUNGI KAMI WA */
-.kurachat {bottom:20px;left:20px;background-color: #e4e4e4; color: rgba(0, 0, 0, 0.6);position: fixed; z-index: 99999999;border-radius:20px;padding:5px 10px 5px 5px}
-.kurachat span{background:green;padding:3px 6px;border-radius:100%;color:white}
-.kurachat a{color: rgba(0, 0, 0, 0.6)}
+
+.kurachat {
+    bottom: 20px;
+    left: 20px;
+    background-color: #e4e4e4;
+    color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 99999999;
+    border-radius: 20px;
+    padding: 5px 10px 5px 5px
+}
+
+.kurachat span {
+    background: green;
+    padding: 3px 6px;
+    border-radius: 100%;
+    color: white
+}
+
+.kurachat a {
+    color: rgba(0, 0, 0, 0.6)
+}
