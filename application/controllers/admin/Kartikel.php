@@ -59,4 +59,36 @@ class Kartikel extends CI_Controller
         $this->base_model->del('kartikel', $where);
         redirect('admin/kartikel');
     }
+
+    public function edit($id)
+    {
+        $this->form_validation->set_rules('namaKategori', 'nama', 'required');
+        // $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            // $where=array('id_kartikel' => $id);
+            $query = $this->base->getKartikel($id);
+            if($query->num_rows() > 0){
+                $data['row'] = $query->row();
+                $data['title'] = 'Edit Kategori Arikel';
+                $this->template->load('template', 'kartikel/edit', $data);
+            } else {
+                echo "<script>alert('Data Tidak Di Temukan');";
+                echo "window.location='".site_url('admin/kartikel')."';</script>";
+            }
+        } else {
+            $post = $this->input->post(null, TRUE);
+            $data = array(
+                'nama' => $this->input->post('namaKategori'),
+            );
+            $where=array('id_kartikel' => $id);
+            $this->base_model->edit('kartikel', $data, $where);
+            if($this->db->affected_rows() > 0){
+                echo "<script>alert('Data Berhasil Di Simpan');</script>";
+            }
+            echo "<script>window.location='".site_url('admin/kartikel')."';</script>";
+        }
+    }
 }
