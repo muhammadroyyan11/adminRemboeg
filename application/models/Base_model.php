@@ -73,6 +73,19 @@ class Base_model extends CI_Model
         return $query;
     }
 
+    public function getKProduk($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('kproduk');
+        $this->db->order_by('nama', 'ASC');
+        if ($id != null) {
+            $this->db->where('id_kproduk', $id);
+        }
+        $query = $this->db->get();
+
+        return $query;
+    }
+
     public function getBarang($id = null)
     {
         $this->db->select('*');
