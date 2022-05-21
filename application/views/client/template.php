@@ -78,7 +78,7 @@
                             </li>
 
                             <li>
-                                <a href="<?= site_url('shop') ?>">Shop</a>
+                                <a href="<?= base_url('shop') ?>">Shop</a>
                             </li>
 
                             <li>
