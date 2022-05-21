@@ -235,6 +235,15 @@ class Base_model extends CI_Model
         return $this->db->get()->row();
     }
 
+    public function getPosting2()
+    {
+        $this->db->select('*');
+        $this->db->from('posting');
+        $this->db->join('kartikel', 'kartikel.id_kartikel = posting.id_kartikel');
+        // $this->db->where('seo_judul', $seo_judul);
+        return $this->db->get();
+    }
+
     public function getProduk($seo_name)
     {
         $this->db->select('*');

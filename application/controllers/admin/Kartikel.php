@@ -27,6 +27,7 @@ class Kartikel extends CI_Controller
 
         $this->db->insert('kartikel', array(
             'nama' => $this->input->post('namaKategori'),
+            'seo_nama' => slugify($this->input->post('namaKategori')),
             'isActive' => '1'
             // 'stok' => str_replace(',', '', $this->input->post('stok')),
             // 'harga' => str_replace(',', '', $this->input->post('harga'))

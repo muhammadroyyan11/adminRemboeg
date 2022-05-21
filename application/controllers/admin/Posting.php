@@ -15,7 +15,7 @@ class Posting extends CI_Controller
     public function index()
     {
         $data['title'] = "Data Posting Artikel";
-        $data['posting'] = $this->base_model->getPosting()->result();
+        $data['posting'] = $this->base_model->getPosting2()->result();
         $this->template->load('template', 'posting/data', $data);
     }
 

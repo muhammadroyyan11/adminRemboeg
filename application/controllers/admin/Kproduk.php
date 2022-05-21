@@ -25,6 +25,7 @@ class Kproduk extends CI_Controller
     {
         $this->db->insert('kproduk', array(
             'nama' => $this->input->post('namaKategori'),
+            'seo_nama' => slugify($this->input->post('namaKategori')),
             'isActive' => '1'
         ));
 
@@ -73,6 +74,7 @@ class Kproduk extends CI_Controller
             $post = $this->input->post(null, TRUE);
             $data = array(
                 'nama' => $this->input->post('namaKategori'),
+                'seo_nama' => slugify($this->input->post('namaKategori')),
             );
             $where = array('id_kproduk' => $id);
             $this->base_model->edit('kproduk', $data, $where);
