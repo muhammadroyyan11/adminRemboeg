@@ -99,6 +99,32 @@ class Base_model extends CI_Model
         return $query;
     }
 
+    public function getOutlet($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('outlet');
+        $this->db->order_by('nama', 'ASC');
+        if ($id != null) {
+            $this->db->where('id_outlet', $id);
+        }
+        $query = $this->db->get();
+
+        return $query;
+    }
+
+    public function getArtikel($id = null)
+    {
+        $this->db->select('*');
+        $this->db->from('posting');
+        $this->db->order_by('judul', 'ASC');
+        if ($id != null) {
+            $this->db->where('id_posting', $id);
+        }
+        $query = $this->db->get();
+
+        return $query;
+    }
+
     public function editBarang($post)
     {
         $params['name'] = $post['nama_barang'];

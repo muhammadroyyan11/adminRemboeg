@@ -54,8 +54,6 @@ class Posting extends CI_Controller
             $seo = slugify($this->input->post('judul'));
             $konten = $this->input->post('konten');
             $featured = $this->input->post('featured');
-            $choice = $this->input->post('choice');
-            $thread = $this->input->post('thread');
             $id_kartikel = $this->input->post('kategori');
             $isActive = 1;
             $date = date('Y-m-d');
@@ -70,8 +68,6 @@ class Posting extends CI_Controller
                 'seo_judul' => $seo,
                 'konten' => $konten,
                 'featured' => $featured,
-                'choice' => $choice,
-                'thread' => $thread,
                 'gambar_name' => $gambar,
                 'id_kartikel' => $id_kartikel,
                 'isActive' => $isActive,
@@ -86,8 +82,6 @@ class Posting extends CI_Controller
             $seo = slugify($this->input->post('judul'));
             $konten = $this->input->post('konten');
             $featured = $this->input->post('featured');
-            $choice = $this->input->post('choice');
-            $thread = $this->input->post('thread');
             $id_kartikel = $this->input->post('kategori');
             $isActive = 1;
             $date = date('Y-m-d');
@@ -98,8 +92,6 @@ class Posting extends CI_Controller
                 'seo_judul' => $seo,
                 'konten' => $konten,
                 'featured' => $featured,
-                'choice' => $choice,
-                'thread' => $thread,
                 'gambar_name' => $gambar,
                 'id_kartikel' => $id_kartikel,
                 'isActive' => $isActive,
@@ -124,5 +116,94 @@ class Posting extends CI_Controller
             set_pesan('data gagal dihapus.', false);
         }
         redirect('admin/posting');
+    }
+
+    public function edit($id)
+    {
+        $this->form_validation->set_rules('judul', 'Judul', 'required');
+        if ($this->input->post('userfile')) {
+            $this->form_validation->set_rules('userfile', 'Userfile');
+        }
+        // $this->form_validation->set_rules('link_tokped', 'Link_tokped', 'required');
+        if ($this->input->post('konten')) {
+            $this->form_validation->set_rules('konten', 'Konten');
+        }
+        // $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+        $this->form_validation->set_message('required', '% masih kosong, Silahkan di isi');
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $query = $this->base->getArtikel($id);
+            if ($query->num_rows() > 0) {
+                $data['title'] = 'Edit data Posting';
+                $data['row'] = $query->row();
+                $data['kategori'] = $this->base_model->getOrder('kartikel')->result();
+                $this->template->load('template', 'posting/edit', $data);
+            } else {
+                echo "<script>alert('Data Tidak Di Temukan');";
+                echo "window.location='" . site_url('admin/Posting') . "';</script>";
+            }
+        } else {
+            $config['upload_path']          = './assets/img/uploads/artikel/';
+            $config['allowed_types']        = 'jpg|png|jpeg';
+            $config['max_size']             = 5000;
+            $config['max_width']            = 10000;
+            $config['max_height']           = 10000;
+
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('userfile')) {
+                // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
+
+                // redirect('campaign/add');
+                $gambar = $this->upload->data();
+                $gambar =  $gambar['file_name'];
+                $seo = slugify($this->input->post('judul'));
+                $judul = $this->input->post('judul');
+                $konten = $this->input->post('konten');
+                $featured = $this->input->post('featured');
+                $id_kartikel = $this->input->post('kategori');
+
+                $data = array(
+                    'judul' => $judul,
+                    'konten' => $konten,
+                    'featured' => $featured,
+                    'seo_judul' => $seo,
+                    'gambar_name' => $gambar,
+                    'id_kartikel' => $id_kartikel,
+                );
+                // var_dump($data);
+                $this->base_model->insert('Posting', $data);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+                redirect('admin/Posting');
+            } else {
+
+                $gambar = $this->upload->data();
+                $gambar =  $gambar['file_name'];
+                $seo = slugify($this->input->post('judul'));
+                $judul = $this->input->post('judul');
+                $konten = $this->input->post('konten');
+                $featured = $this->input->post('featured');
+                $id_kartikel = $this->input->post('kategori');
+
+                $data = array(
+                    'judul' => $judul,
+                    'konten' => $konten,
+                    'featured' => $featured,
+                    'seo_judul' => $seo,
+                    'gambar_name' => $gambar,
+                    'id_kartikel' => $id_kartikel,
+                );
+                var_dump($data);
+                // $where = array('id_posting' => $this->input->post('id_posting'));
+                // $this->base_model->edit('posting', $data, $where);
+                // if ($this->db->affected_rows() > 0) {
+                //     echo "<script>alert('Data Berhasil Di Simpan');</script>";
+                // } else {
+                //     echo "<script>alert('Gagal Di Simpan');</script>";
+                // }
+                // echo "<script>window.location='" . site_url('admin/Posting') . "';</script>";
+            }
+        }
     }
 }

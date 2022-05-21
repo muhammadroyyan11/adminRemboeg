@@ -209,13 +209,13 @@
 					<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 						<!-- Block3 -->
 						<div class="block3">
-							<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<a href="<?= base_url("blog/read/$data->seo_judul")?>" class="block3-img dis-block hov-img-zoom">
 								<img src="<?= base_url() ?>assets/img/uploads/artikel/<?= $data->gambar_name ?>" alt="IMG-BLOG" width="100" height="240">
 							</a>
 
 							<div class="block3-txt p-t-14">
 								<h4 class="p-b-7">
-									<a href="blog-detail.html" class="m-text11">
+									<a href="<?= base_url("blog/read/$data->seo_judul")?>" class="m-text11">
 										<?= $data->judul ?>
 									</a>
 								</h4>
@@ -248,7 +248,7 @@
 		<div class="flex-w">
 			<!-- Block4 -->
 			<div class="block4 wrap-pic-w">
-				<img src="<?= base_url() ?>assets/client/images/gallery-03.jpg" alt="IMG-INSTAGRAM">
+				<img src="<?= base_url() ?>assets/client/images/fo1.jpg" width="100%" height="100%" alt="IMG-INSTAGRAM">
 
 				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
@@ -258,11 +258,11 @@
 
 					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
 						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+							,,, malam ini, barista bon bon an dari arema batavia
 						</p>
 
 						<span class="s-text9">
-							Photo by @nancyward
+							Photo by @kopikoopen
 						</span>
 					</div>
 				</a>
@@ -270,7 +270,7 @@
 
 			<!-- Block4 -->
 			<div class="block4 wrap-pic-w">
-				<img src="<?= base_url() ?>assets/client/images/gallery-07.jpg" alt="IMG-INSTAGRAM">
+				<img src="<?= base_url() ?>assets/client/images/fo2.jpg" width="100%" height="100%" alt="IMG-INSTAGRAM">
 
 				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
 					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
@@ -280,11 +280,14 @@
 
 					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
 						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+							,,, "Teko nang Malang, gak asik nek durung mampir ngopi & foto nang Prapatan Klojen. Nongkrong ndek ujung prapatan dalan seng view ne lalu lalang. Kopi ne kopi original , kopi Malang, kroso Ngalam tenan. "
+							kiro kiro ngono boso jowone seng ate di omongno Michelle & Marsha, pelawat tekan Londo.
+							.
+							posting seng di delay mergo ketekan Batman wingi
 						</p>
 
 						<span class="s-text9">
-							Photo by @nancyward
+							Photo by @kopikoopen
 						</span>
 					</div>
 				</a>

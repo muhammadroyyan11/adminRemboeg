@@ -20,10 +20,7 @@
                                         <th>No</th>
                                         <th>Judul Artikel</th>
                                         <th>F</th>
-                                        <th>C</th>
-                                        <th>P</th>
                                         <th>Kategori</th>
-                                        <th>Aktif</th>
                                         <th>Tgl Upload</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -35,10 +32,7 @@
                                             <td><?= $no++; ?></td>
                                             <td><?= $data->judul ?></td>
                                             <td><?= $data->featured ?></td>
-                                            <td><?= $data->choice ?></td>
-                                            <td><?= $data->thread ?></td>
                                             <td><?= $data->nama ?></td> <!-- Nama Kategori -->
-                                            <td><?= $data->isActive ?></td>
                                             <td><?= $data->date ?></td>
                                             <th>
                                                 <a href="<?= base_url('admin/posting/edit/') . $data->id_posting ?>" class="btn btn-circle btn-warning btn-sm"><i class="fa fa-edit"></i></a>

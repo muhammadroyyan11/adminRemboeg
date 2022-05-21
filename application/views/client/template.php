@@ -405,7 +405,7 @@
     </script>
 
     <!--===============================================================================================-->
-    <script src="<?= base_url() ?>assets/client/js/main.js"></script>vv
+    <script src="<?= base_url() ?>assets/client/js/main.js"></script>
 
 
 </body>

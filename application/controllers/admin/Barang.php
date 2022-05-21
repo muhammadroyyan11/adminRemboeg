@@ -181,6 +181,8 @@ class Barang extends CI_Controller
 
             $this->load->library('upload', $config);
 
+            
+
             if (!$this->upload->do_upload('userfile')) {
                 // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Format gambar bukan PNG. </div>');
 
@@ -205,10 +207,10 @@ class Barang extends CI_Controller
                     'link_tokped' => $link,
                     'id_kproduk' => $id_kproduk,
                 );
-                // var_dump($data);
-                $this->base_model->insert('barang', $data);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
-                redirect('admin/barang');
+                var_dump($data);
+                // $this->base_model->insert('barang', $data);
+                // $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> Data Berhasil Ditambahkan! </div>');
+                // redirect('admin/barang');
             } else {
 
                 $gambar = $this->upload->data();
@@ -244,4 +246,6 @@ class Barang extends CI_Controller
             }
         }
     }
+
+    
 }

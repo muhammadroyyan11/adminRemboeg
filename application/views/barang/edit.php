@@ -25,7 +25,7 @@
                                         <span>Status Produk</span>
                                     </div>
                                     <div class="col-md-8">
-                                        <select name="status" value="<?= set_value('status') ?>" class="form-control">
+                                        <select name="status" value="<?= $row->status?>" class="form-control">
                                             <option value="Tersedia" <?= set_value('status') == 1 ? "selected" : null ?>>Tersedia</option>
                                             <option value="Tidak Tersedia" <?= set_value('status') == 2 ? "selected" : null ?>>Tidak Tersedia</option>
                                         </select>
@@ -68,6 +68,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <input type="file" name="userfile" value="<?= $this->input->post('userfile') ?? $row->gambar_name ?>" class="file">
+                                        <input type="text" name="old_image" value="<?php echo $row->gambar_name ?>" />
                                         <span style="color: red;">(*)Abaikan form ini jika tidak ada perubahan gambar</span>
                                     </div>
                                 </div>

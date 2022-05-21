@@ -20,7 +20,7 @@
 	                                <?= $data->nama?>
 	                            </span>
 
-	                            <a href="<?= site_url('outlet/outlet_view/' . $data->seo_nama) ?>" class="s-text4 hov2 p-t-20 ">
+	                            <a href="<?= site_url('outlet/detail/' . $data->id_outlet) ?>" class="s-text4 hov2 p-t-20 ">
 	                                View Outlet
 	                            </a>
 	                        </div>
