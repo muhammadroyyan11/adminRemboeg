@@ -139,7 +139,7 @@ class Barang extends CI_Controller
     {
         // $id = encode_php_tags($getId);
         if ($this->base_model->delete('barang', 'id_barang', $getId)) {
-            set_pesan('data berhasil dihapus.');
+            echo "<script>alert('Data Berhasil Di Hapus');</script>";
         } else {
             set_pesan('data gagal dihapus.', false);
         }
@@ -166,6 +166,7 @@ class Barang extends CI_Controller
             if ($query->num_rows() > 0) {
                 $data['title'] = 'Edit data barang';
                 $data['row'] = $query->row();
+                $data['kategori'] = $this->base_model->getOrderProduk('kproduk')->result();
                 $this->template->load('template', 'barang/edit', $data);
             } else {
                 echo "<script>alert('Data Tidak Di Temukan');";
@@ -218,6 +219,7 @@ class Barang extends CI_Controller
                 $desc = $this->input->post('description');
                 $status = $this->input->post('status');
                 $link = $this->input->post('link_tokped');
+                $id_kproduk = $this->input->post('kategori');
 
                 
                 $data = array(
@@ -228,6 +230,7 @@ class Barang extends CI_Controller
                     'seo_name' => $seo,
                     'gambar_name' => $gambar,
                     'link_tokped' => $link,
+                    'id_kproduk' => $id_kproduk,
                 );
                 // var_dump($data);
                 $where=array('id_barang' => $this->input->post('id_barang'));
